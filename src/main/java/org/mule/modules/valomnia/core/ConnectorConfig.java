@@ -4,14 +4,11 @@
 package org.mule.modules.valomnia.core;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.conn.HttpHostConnectException;
@@ -29,7 +26,6 @@ import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.modules.valomnia.client.ValomniaClientProvider;
 import org.mule.modules.valomnia.client.impl.ValomniaClientProviderImpl;
-
 import com.google.gson.Gson;
 
 @ConnectionManagement( configElementName = "config",friendlyName = "Configuration")
