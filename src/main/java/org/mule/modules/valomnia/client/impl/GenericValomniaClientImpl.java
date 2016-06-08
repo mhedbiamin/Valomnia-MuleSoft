@@ -42,7 +42,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
     private final String resourcePath;
     
-     private  final Logger logger = Logger.getLogger(GenericValomniaClient.class);
+     private  static final Logger logger = Logger.getLogger(GenericValomniaClient.class);
 
     /* Map of the request parameters */
     private Map<String, String> params;
