@@ -1,0 +1,313 @@
+<!-- BEGIN_INCLUDE(valomnia:find-items) -->
+    <valomnia:find-items   config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-items) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers) -->
+    <valomnia:find-customers config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-customers) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-attributs) -->
+    <valomnia:find-attributs config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-attributs) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:find-items-attribute) -->
+    <valomnia:find-items-attribute config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-items-attribute) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-orders) -->
+    <valomnia:find-orders config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-orders) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-items-group) -->
+    <valomnia:find-items-group config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-items-group) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-items-group-assign) -->
+    <valomnia:find-items-group-assign config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-items-group-assign) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-units) -->
+   <valomnia:find-units config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-units) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-item-units) -->
+    <valomnia:find-item-units   config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-item-units) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-tax-types) -->
+    <valomnia:find-tax-types   config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-tax-types) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-tax-lists) -->
+<valomnia:find-tax-lists config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-tax-lists) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-taxs) -->
+<valomnia:find-taxs config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-taxs) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:find-price-lists) -->
+<valomnia:find-price-lists config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-price-lists) -->
+ 
+ 
+<!-- BEGIN_INCLUDE(valomnia:find-prices) -->
+    <valomnia:find-prices config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-prices) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-order-details) -->
+<valomnia:find-order-details config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-order-details) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-category) -->
+    <valomnia:find-customers-category config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-customers-category) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-contacts) -->
+    <valomnia:find-contacts  config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-contacts) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-group) -->
+    <valomnia:find-customers-group config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-group) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-group-assign) -->
+    <valomnia:find-customers-group-assign config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-group-assign) -->
+
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-category-price-list) -->
+    <valomnia:find-customers-category-price-list config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-category-price-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-category-tax-list) -->
+    <valomnia:find-customers-category-price-list config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-category-tax-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-payment-type) -->
+    <valomnia:find-customers-payment-type config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-payment-type) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-price-list) -->
+    <valomnia:find-customers-price-list config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-price-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-tax-list) -->
+    <valomnia:find-customers-tax-list config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-customers-tax-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-ware-houses) -->
+    <valomnia:find-ware-houses config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-ware-houses) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-ware-house-stocks) -->
+    <valomnia:find-ware-house-stocks config-ref="Valomnia__Configuration" doc:name="Valomnia"/> 
+<!-- END_INCLUDE(valomnia:find-ware-house-stocks) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-orders-details) -->
+    <valomnia:find-orders-details config-ref="Valomnia__Configuration" doc:name="Valomnia"/> 
+<!-- END_INCLUDE(valomnia:find-orders-details) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-employee-groups) -->
+    <valomnia:find-employee-groups config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-employee-groups) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-employees) -->
+    <valomnia:find-employees config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-employees) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-users) -->
+   <valomnia:find-users config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-users) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:find-authority) -->
+    <valomnia:find-authority config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-authority) -->
+ 
+<!-- BEGIN_INCLUDE(valomnia:find-users-authority) -->
+    <valomnia:find-users-authority config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-users-authority) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-loadings) -->
+    <valomnia:find-loadings config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-loadings) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-attributes-value) -->
+    <valomnia:find-attributes-value config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-attributes-value) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:find-loading-details) -->
+    <valomnia:find-loading-details config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-loading-details) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-customers-employee) -->
+    <valomnia:find-customers-employee config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:find-customers-employee) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-orders-payment) -->
+<valomnia:find-orders-payment config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-orders-payment) -->
+
+<!-- BEGIN_INCLUDE(valomnia:find-items-category) -->
+<valomnia:find-items-category config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:find-items-category) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item) -->
+    <valomnia:merge-item  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-item) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-category-price-list) -->
+    <valomnia:merge-customer-category-price-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-category-price-list) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-category) -->
+    <valomnia:merge-customer-category  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-category) --> 
+
+<!-- BEGIN_INCLUDE(valomnia:merge-price-list) -->
+    <valomnia:merge-price-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-price-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-category-tax-list) -->
+    <valomnia:merge-customer-category-tax-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-category-tax-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item-category) -->
+    <valomnia:merge-item-category  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-item-category) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-tax-list) -->
+    <valomnia:merge-tax-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-tax-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-contact) -->
+    <valomnia:merge-contact  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-contact) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer) -->
+    <valomnia:merge-customer  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item-attribute) -->
+    <valomnia:merge-item-attribute  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-item-attribute) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-attribute) -->
+    <valomnia:merge-attribute config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-attribute) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-employee) -->
+    <valomnia:merge-employee config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-employee) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-group) -->
+    <valomnia:merge-customer-group  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-group) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-employee) -->
+    <valomnia:merge-customer-employee  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-employee) -->
+
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-group-assign) -->
+    <valomnia:merge-customer-group-assign  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-group-assign) -->
+
+
+<!-- BEGIN_INCLUDE(valomnia:merge-user-authority) -->
+    <valomnia:merge-user-authority  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-user-authority) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-authority) -->
+    <valomnia:merge-authority  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-authority) -->
+
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-payment-type) -->
+    <valomnia:merge-customer-payment-type  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-payment-type) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-price-list) -->
+    <valomnia:merge-customer-price-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-price-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-customer-tax-list) -->
+    <valomnia:merge-customer-tax-list  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-customer-tax-list) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-employee-group) -->
+    <valomnia:merge-employee-group  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-employee-group) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-tax) -->
+    <valomnia:merge-tax  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-tax) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item-group) -->
+    <valomnia:merge-item-group  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-item-group) -->
+
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item-group-assign) -->
+    <valomnia:merge-item-group-assign  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-item-group-assign) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-attribute-value) -->
+    <valomnia:merge-attribute-value config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-attribute-value) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-item-unit) -->
+    <valomnia:merge-item-unit config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-item-unit) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-loading) -->
+    <valomnia:merge-loading config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-loading) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-loading-details) -->
+    <valomnia:merge-loading-details config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-loading-details) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-order-detail) -->
+    <valomnia:merge-order-detail config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-order-detail) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-order-payment) -->
+    <valomnia:merge-order-payment config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-order-payment) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-price) -->
+    <valomnia:merge-price config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-price) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-order) -->
+    <valomnia:merge-order config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-order) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-tax-type) -->
+    <valomnia:merge-tax-type  config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-tax-type) -->  
+
+
+<!-- BEGIN_INCLUDE(valomnia:merge-unit) -->
+    <valomnia:merge-unit  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-unit) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-user) -->
+    <valomnia:merge-order  config-ref="Valomnia__Configuration" doc:name="Valomnia"/>
+<!-- END_INCLUDE(valomnia:merge-user) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-ware-house) -->
+    <valomnia:merge-ware-house  config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-ware-house) -->
+
+<!-- BEGIN_INCLUDE(valomnia:merge-ware-house-stock) -->
+    <valomnia:merge-ware-house-stock   config-ref="Valomnia__Configuration" doc:name="Valomnia" />
+<!-- END_INCLUDE(valomnia:merge-ware-house-stock) -->
+
+
+
+
+
+
+

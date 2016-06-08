@@ -1,0 +1,41 @@
+== Valomnia Connector Release Notes
+
+:toc: macro
+:toc-title: Contents:
+
+:source-highlighter: prettify
+
+
+
+:!numbered:
+
+[green]#Certified#
+
+The Valomnia Connector facilitates connections between Mule integration and Valomnia platform. The Valomnia Connector v1.0 allows you to perform Find and merge  operations for the Valomnia entities user account .
+
+*Contents*
+
+toc::[]
+
+== Version 1.0 - Mai  31, 2016
+
+=== Version 1.0 Compatibility
+
+The Valomnia connector 1.0 is compatible with the following applications:
+
+
+[cols="2*",width="50%",options="header"]
+|===
+| Application/Service | Version |
+
+Mule Runtime	| 3.7.3 or later |
+Valomnia platform	|  1.* |
+
+|===
+
+== See Also
+
+* Learn how to http://www.mulesoft.org/documentation/display/current/Installing+Connectors[Install and Configure Anypoint Connectors] in Anypoint Studio.
+
+* Read more about this in http://mulesoft.github.com/paypal-connector/doc/user-manual.adoc and http://mulesoft.github.com/paypal-connector/demo for examples of how to use it
+Access the http://forum.mulesoft.org/mulesoft[MuleSoft Forum] to pose questions and get help from Mule’s broad community of users.
