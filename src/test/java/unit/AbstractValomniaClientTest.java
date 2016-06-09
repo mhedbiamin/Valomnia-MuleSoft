@@ -13,7 +13,7 @@ import org.mule.modules.valomnia.entities.Item;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 
-public class TestAbstractValomniaClient {
+public class AbstractValomniaClientTest {
 
 	@Test
 	public void testParseFromJsonArrayJsonParseException()

@@ -86,7 +86,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
 			final String url = encodage(parameters);
 
-			final HttpResponse response = this.getResponse("get",
+			final HttpResponse response = getResponse("get",
 					this.getToken(), getBaseURL() + "list?" + url);
 			results = this.processResponse(response);
 
@@ -168,7 +168,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 		String line;
 		int saved;
 		HttpResponse response = null;
-		;
+		
 		String params;
 
 		try {
@@ -189,16 +189,11 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
 			params = encodage(parameters);
 
-			try {
-				response = this.getResponse("post", this.getToken(),
+			
+				response = getResponse("post", this.getToken(),
 						getBaseURL() + "saveOrUpdate?" + params);
 				
-			} catch (HttpException e)
-
-			{
-				logger.error("Error Http ", e);
-
-			}
+			
 			
 			if (response.getStatusLine().getStatusCode() == 200) {
 
@@ -224,20 +219,25 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 					ArrayList<Object> errorsResponse = new Gson().fromJson(
 							line, ArrayList.class);
 
-					Type type = new TypeToken<List<String>>() {
-					}.getType();
+					Type type = new TypeToken<List<String>>() {}.getType();
 
 					String Temp = new Gson().toJson(errorsResponse);
 					List<String> errors = new Gson().fromJson(Temp, type);
-					result = errors.get(0).toString()
-							+ errors.get(1).toString();
+					result = errors.get(0)
+							+ errors.get(1);
 				}
 
 			}
 		} catch (ClientProtocolException e) {
 			logger.error("Http client exception", e);
 
-		}
+		} catch (HttpException e)
+
+			{
+				logger.error("Error Http ", e);
+
+			}
+                
 
 		catch (IOException e) {
 

@@ -10,6 +10,8 @@ public class Item {
 
 	
 
+	
+
 	private Integer id;
 	private String reference;
 	private String organization;
@@ -288,4 +290,28 @@ public class Item {
 			return false;
 		return true;
 	}
+
+
+
+
+
+@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((categoryReference == null) ? 0 : categoryReference
+						.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((reference == null) ? 0 : reference.hashCode());
+		return result;
+	}
+
+
+
+
 }
+
