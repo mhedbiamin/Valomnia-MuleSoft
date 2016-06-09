@@ -8,11 +8,6 @@ package org.mule.modules.valomnia.client.impl;
 
 import java.io.BufferedReader;
 
-
-
-
-
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -20,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.log4j.Logger;
@@ -31,224 +27,225 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.reflect.*;
 
-
 public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
-        implements GenericValomniaClient<T> {
+		implements GenericValomniaClient<T> {
 
-	
-	
 	private final Class<T> typeElement;
-    private final String token;
+	private final String token;
 
-    private final String resourcePath;
-    
-     private  static final Logger logger = Logger.getLogger(GenericValomniaClient.class);
+	private final String resourcePath;
 
-    /* Map of the request parameters */
-    private Map<String, String> params;
+	private static final Logger logger = Logger
+			.getLogger(GenericValomniaClient.class);
 
-    public GenericValomniaClientImpl(String baseUrl, String token, String resourcePath,Class<T> typeElement) {
-        super(baseUrl);
-        this.token = token;
-        this.typeElement=typeElement;
+	/* Map of the request parameters */
+	private Map<String, String> params;
 
-        this.resourcePath = resourcePath;
+	public GenericValomniaClientImpl(String baseUrl, String token,
+			String resourcePath, Class<T> typeElement) {
+		super(baseUrl);
+		this.token = token;
+		this.typeElement = typeElement;
 
-    }
+		this.resourcePath = resourcePath;
 
-    public String getToken() {
-        return this.token;
-    }
+	}
 
-    public Map<String, String> getParams() {
-        return params;
-    }
+	public String getToken() {
+		return this.token;
+	}
 
-    public void setParams(final Map<String, String> params) {
-        this.params = params;
-    }
+	public Map<String, String> getParams() {
+		return params;
+	}
 
-    @Override
-    protected StringBuilder extendGetBaseUrl(final StringBuilder baseUrl) {
+	public void setParams(final Map<String, String> params) {
+		this.params = params;
+	}
 
-        return baseUrl.append(this.resourcePath);
+	@Override
+	protected StringBuilder extendGetBaseUrl(final StringBuilder baseUrl) {
 
-    }
+		return baseUrl.append(this.resourcePath);
 
-    @Override
-    public List<T> getAll() {
-    
-        List<T> results = new ArrayList<T>();
+	}
 
-        
+	@Override
+	public List<T> getAll() {
 
+		List<T> results = new ArrayList<T>();
 
-        try {
+		try {
 
-            final List<CustomNameValuePair> parameters = new ArrayList<CustomNameValuePair>();
+			final List<CustomNameValuePair> parameters = new ArrayList<CustomNameValuePair>();
 
-            parameters.add(new CustomNameValuePair("firstSynchronization",
-                    "true"));
+			parameters.add(new CustomNameValuePair("firstSynchronization",
+					"true"));
 
-            parameters.add(new CustomNameValuePair("format", "json"));
+			parameters.add(new CustomNameValuePair("format", "json"));
 
-            final String url = encodage(parameters);
+			final String url = encodage(parameters);
 
-            final HttpResponse response = this.getResponse("get",
-                    this.getToken(), getBaseURL() + "list?" + url);
-            results = this.processResponse(response);
-            
-            
-                
-                    
+			final HttpResponse response = this.getResponse("get",
+					this.getToken(), getBaseURL() + "list?" + url);
+			results = this.processResponse(response);
 
-        
-        }catch (Exception e) {
+		} catch (IOException e) {
 
-        	logger.error("Http exception",e);
-             
-        }
+			logger.error("Http client exception ", e);
+		}
 
-        return (ArrayList<T>)results;
+		catch (Exception e) {
 
-    }
+			logger.error("Http exception", e);
 
-    /**
-     * this method process the response from Valomnia API
-     * 
-     * @param response
-     *            returned by the invocation
-     * @return List of entities , null if not found, or an Exception if something bad happened
-     * @throws Exception
-     */
+		}
 
-    public List<T> processResponse(final HttpResponse response)
-            throws Exception
+		return (ArrayList<T>) results;
 
-    {  
+	}
 
-        List<T> entities = null;
-        final String line = readResponseFromClientResponse(response);
+	/**
+	 * this method process the response from Valomnia API
+	 * 
+	 * @param response
+	 *            returned by the invocation
+	 * @return List of entities , null if not found, or an Exception if
+	 *         something bad happened
+	 * @throws Exception
+	 */
 
-        if (response.getStatusLine()
-                .getStatusCode() == 404) {
+	public List<T> processResponse(final HttpResponse response)
+			throws Exception
 
-            throw new ValomniaAPIException("ressource not found");
+	{
 
-        } else if (response.getStatusLine()
-                .getStatusCode() >= 400) {
+		List<T> entities = null;
+		final String line = readResponseFromClientResponse(response);
 
-            throw new ValomniaAPIException(line);
+		if (response.getStatusLine().getStatusCode() == 404) {
 
-        }
-        final List<T> results = new ArrayList<T>();
-        try {
+			throw new ValomniaAPIException("ressource not found");
 
-            entities = new ArrayList<T>();
-            if (line != null) {
-                
-            	
+		} else if (response.getStatusLine().getStatusCode() >= 400) {
 
-                JsonArray list = parseToJson(line ,"listCreated");
+			throw new ValomniaAPIException(line);
 
-                entities = parseFromJson(list, typeElement);
-                results.addAll(entities);
-                JsonArray list1 = parseToJson(line ,"listUpdated");
-                entities = parseFromJson(list1, typeElement);
-                results.addAll(entities);
-                
-                
-            }
+		}
+		final List<T> results = new ArrayList<T>();
+		try {
 
-            else
-                logger.error(" HTTP  code : "
-                        + response.getStatusLine()
-                                .getStatusCode());
+			entities = new ArrayList<T>();
+			if (line != null) {
 
-        }
+				JsonArray list = parseToJson(line, "listCreated");
 
-        catch (Exception e) {
+				entities = parseFromJson(list, typeElement);
+				results.addAll(entities);
+				JsonArray list1 = parseToJson(line, "listUpdated");
+				entities = parseFromJson(list1, typeElement);
+				results.addAll(entities);
 
-            logger.error("Http execption",e);
-        }
-        return results;
+			}
 
-    }
+			else
+				logger.error(" HTTP  code : "
+						+ response.getStatusLine().getStatusCode());
 
-    @Override
-    public String merge(final Object object) {
-        String result = null;
-        String line;
-        int saved;
+		}
 
-        try {
+		catch (Exception e) {
 
-            final List<CustomNameValuePair> parameters = new ArrayList<CustomNameValuePair>();
+			logger.error("Http execption", e);
+		}
+		return results;
 
-            saved = this.getAll()
-                    .size();
+	}
 
-            @SuppressWarnings("unchecked")
-            final Map<String, Object> map = BeanUtils.describe(object);
+	@Override
+	public String merge(final Object object) {
+		String result = null;
+		String line;
+		int saved;
+		HttpResponse response = null;
+		;
+		String params;
 
-            for (final Map.Entry<String, Object> entry : map.entrySet()) {
-                if (entry.getValue() != null)
-                    parameters.add(new CustomNameValuePair(entry.getKey(),
-                            (String) entry.getValue()));
+		try {
 
-            }
+			final List<CustomNameValuePair> parameters = new ArrayList<CustomNameValuePair>();
 
-            final String params = encodage(parameters);
+			saved = this.getAll().size();
 
-            final HttpResponse response = this.getResponse("post",
-                    this.getToken(), getBaseURL() + "saveOrUpdate?" + params);
+			@SuppressWarnings("unchecked")
+			final Map<String, Object> map = BeanUtils.describe(object);
 
-            if (response.getStatusLine()
-                    .getStatusCode() == 200) {
+			for (final Map.Entry<String, Object> entry : map.entrySet()) {
+				if (entry.getValue() != null)
+					parameters.add(new CustomNameValuePair(entry.getKey(),
+							(String) entry.getValue()));
 
-                BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity()
-                        .getContent()));
+			}
 
-                int saved1 = this.getAll()
-                        .size();
+			params = encodage(parameters);
 
-                if ((line = rd.readLine()) != null) {
-                    if (saved != saved1)
-                        result = "Success created";
-                    else
-                        result = "Success Updated";
-                }
+			try {
+				response = this.getResponse("post", this.getToken(),
+						getBaseURL() + "saveOrUpdate?" + params);
+				
+			} catch (HttpException e)
 
-            } else {
+			{
+				logger.error("Error Http ", e);
 
-                BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity()
-                        .getContent()));
-                if ((line = rd.readLine()) != null) {
+			}
+			
+			if (response.getStatusLine().getStatusCode() == 200) {
 
-                    @SuppressWarnings("unchecked")
-                    ArrayList<Object> errorsResponse= new Gson().fromJson(line, ArrayList.class);
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
 
-                    Type type = new TypeToken<List<String>>() {
-                    }.getType();
+				int saved1 = this.getAll().size();
 
-                    String Temp = new Gson().toJson (errorsResponse);
-                    List<String> errors = new Gson().fromJson(Temp, type);
-                    result = errors.get(0).toString()+ errors.get(1).toString();
-                }
+				if ((line = rd.readLine()) != null) {
+					if (saved != saved1)
+						result = "Success created";
+					else
+						result = "Success Updated";
+				}
 
-            }
-        } catch (ClientProtocolException e) {
-        	logger.error("Http client exception",e );
+			} else {
 
-        }
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+				if ((line = rd.readLine()) != null) {
 
-        catch (IOException e) {
+					@SuppressWarnings("unchecked")
+					ArrayList<Object> errorsResponse = new Gson().fromJson(
+							line, ArrayList.class);
 
-           logger.error("Http client exception ",e);
-        }
+					Type type = new TypeToken<List<String>>() {
+					}.getType();
 
-        return result;
+					String Temp = new Gson().toJson(errorsResponse);
+					List<String> errors = new Gson().fromJson(Temp, type);
+					result = errors.get(0).toString()
+							+ errors.get(1).toString();
+				}
 
-    }
-   
+			}
+		} catch (ClientProtocolException e) {
+			logger.error("Http client exception", e);
+
+		}
+
+		catch (IOException e) {
+
+			logger.error("Http client exception ", e);
+		}
+
+		return result;
+
+	}
+
 }

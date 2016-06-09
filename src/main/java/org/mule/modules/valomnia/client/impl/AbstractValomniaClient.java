@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -47,8 +48,8 @@ public abstract class AbstractValomniaClient<T> {
      private static final Logger logger = Logger.getLogger(AbstractValomniaClient.class);
 	private  String baseUrl;
 	private static String encodage = "ISO-8859-1";
-	protected Gson gson = null;
-	private DefaultHttpClient client;
+	static Gson gson = null;
+	private static  DefaultHttpClient client;
 
 	/**
 	 * @return the base URL for the service, inclduing what is added by {
@@ -73,7 +74,7 @@ public abstract class AbstractValomniaClient<T> {
 	protected abstract StringBuilder extendGetBaseUrl(
 			final StringBuilder baseUrl);
 
-	protected String readResponseFromClientResponse(final HttpResponse response) {
+	static String readResponseFromClientResponse(final HttpResponse response) {
 
 		String line = null;
 		try {
@@ -112,8 +113,8 @@ public abstract class AbstractValomniaClient<T> {
 	 * 
 	 */
 
-	protected HttpResponse getResponse(final String type, final String token,
-			final String url) throws IOException
+	 public static  HttpResponse getResponse(final String type, final String token,
+			final String url) throws IOException,HttpException
 
 	{
 		HttpResponse response = null;
@@ -149,28 +150,28 @@ public abstract class AbstractValomniaClient<T> {
 	 * @throws IOException
 	 *             if the string is not JSON-formatted
 	 */
-	 @SuppressWarnings("hiding")
-	protected  <T> List<T> parseFromJson(final JsonArray array, final Class<T> clazz) 
-				throws IOException {
-
+	 
+	   public static <T> List<T> parseFromJson(final JsonArray array, final Class<T> clazz) 
+				{
+		 List<T> lst =  new ArrayList<T>();
 			try {
 				gson = new Gson();
 				
 				
-				List<T> lst =  new ArrayList<T>();
+				
 		        for(final JsonElement json: array){
 		            T entity = gson.fromJson(json, clazz);
 		            lst.add(entity);
 		        }
 
-		        return lst;
+		       
 
 			} catch (final JsonParseException jpe) {
 				logger.error("Json exception",jpe);
-				final IOException ioe = new IOException(
-						"Parse exception  JSON to object");
-				throw ioe;
+				
+				
 			}
+			 return lst;
 
 		}
 
@@ -189,9 +190,8 @@ public abstract class AbstractValomniaClient<T> {
 
 	
 	
-	protected JsonArray parseToJson(final String response ,
-			final String  listName) throws IOException
-
+	 public static JsonArray parseToJson(final String response ,
+			final String  listName) 
 	{   JsonParser parser = new JsonParser();
 	JsonArray array=null;
 		try {
@@ -203,16 +203,13 @@ public abstract class AbstractValomniaClient<T> {
 			
 		} catch (final JsonParseException jpe) {
 			logger.error("Json exeception",jpe);
-			final IOException ioe = new IOException(
-					"Parse exception converting Object to Json");
-
-			throw ioe;
+			
 		}
 		return  array;
 	}
 	
 
-	public  void setBaseUrl(String baseUrl) {
+	protected void setBaseUrl(String baseUrl) {
 		this.baseUrl = baseUrl;
 	}
 
