@@ -64,5 +64,21 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
         else
             assertEquals(getConnector().mergeItem(obj), expected1);
     }
+    
+    
+    @Test
+    public void verifyItemSaved() {
+    	
+    	List<Item> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findItems();
+        
+        for (Item  item:list)
+        { if ( item.getReference().equals("ref test Item"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 
 }
