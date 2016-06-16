@@ -56,7 +56,7 @@ public abstract class AbstractValomniaClient<T> {
 	 *         AbstractValomniaClient#extendGetBaseUrl(StringBuilder)}
 	 */
 
-	protected String getBaseURL() {
+	public String getBaseURL() {
 
 		return this.extendGetBaseUrl(new StringBuilder(this.baseUrl))
 				.toString();
