@@ -9,7 +9,9 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.junit.Test;
 import org.mule.modules.valomnia.client.impl.AbstractValomniaClient;
+import org.mule.modules.valomnia.client.impl.GenericValomniaClientImpl;
 import org.mule.modules.valomnia.entities.Item;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 
@@ -62,4 +64,29 @@ public class AbstractValomniaClientTest {
 
 		assertTrue(thrown);
 	}
-}
+	
+	@Test 
+	
+	
+	public void testExtendGetBaseUrl()
+	{
+		String baseUrl="http://testUrl.com/";
+	AbstractValomniaClient<Item>  obj= new  GenericValomniaClientImpl<Item>(baseUrl, null ,
+				"items",  null);
+		String result=obj.getBaseURL();
+		assertEquals(result,"http://testUrl.com/items");
+				
+	}	
+		
+		@Test
+		public  void testGetResponseWithNoToken() throws IOException, HttpException
+		
+		
+		{    GenericValomniaClientImpl<Item> obj=   new  GenericValomniaClientImpl<Item>("http;//testUrl.com/", null ,
+				"items",  null);
+			
+			assertNull( obj.getResponse("post", obj.getToken(), obj.getBaseURL()));
+		}
+		
+	}
+
