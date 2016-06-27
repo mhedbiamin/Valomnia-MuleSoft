@@ -1,4 +1,4 @@
-== Valomnia Connector Release Notes
+﻿== Valomnia Connector Release Notes
 
 :toc: macro
 :toc-title: Contents:
@@ -37,5 +37,5 @@ Valomnia platform	|  1.* |
 
 * Learn how to http://www.mulesoft.org/documentation/display/current/Installing+Connectors[Install and Configure Anypoint Connectors] in Anypoint Studio.
 
-* Read more about this in http://mulesoft.github.com/paypal-connector/doc/user-manual.adoc and http://mulesoft.github.com/paypal-connector/demo for examples of how to use it
+* Read more about this in http://mulesoft.github.com/valomnia-connector/doc/user-manual.adoc and http://mulesoft.github.com/valomnia-connector/demo for examples of how to use it 
 Access the http://forum.mulesoft.org/mulesoft[MuleSoft Forum] to pose questions and get help from Mule’s broad community of users.
