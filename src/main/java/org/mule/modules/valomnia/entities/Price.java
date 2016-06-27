@@ -13,7 +13,7 @@ private Integer id;
 private String priceListReference;
 private String itemReference;
 private String unitReference;
-private Integer value;
+private String value;
 private Object unitPrice;
 private Object marginRate;
 private String organization;
