@@ -98,7 +98,7 @@ this.unitReference = unitReference;
 * @return
 * The value
 */
-public Integer getValue() {
+public String getValue() {
 return value;
 }
 
@@ -107,7 +107,7 @@ return value;
 * @param value
 * The value
 */
-public void setValue(Integer value) {
+public void setValue(String value) {
 this.value = value;
 }
 
