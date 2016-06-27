@@ -60,7 +60,7 @@ public class ValomniaClientProviderImpl implements ValomniaClientProvider {
 	  private static final Logger logger=Logger.getLogger(ValomniaClientProviderImpl.class);
 
 	@SuppressWarnings("serial")
-	public ValomniaClientProviderImpl(final String baseUrl, final String password,
+	public ValomniaClientProviderImpl(final String baseUrl,
 			final String token) {
 		try {
 
@@ -176,9 +176,9 @@ public class ValomniaClientProviderImpl implements ValomniaClientProvider {
 
 		} catch (Exception e) {
 
-			{
+			
 				logger.error("exception",e);
-			}
+		
 		}
 	}
 

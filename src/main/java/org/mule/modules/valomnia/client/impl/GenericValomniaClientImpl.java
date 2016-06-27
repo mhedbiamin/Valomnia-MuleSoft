@@ -14,8 +14,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.log4j.Logger;
@@ -39,7 +37,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 			.getLogger(GenericValomniaClient.class);
 
 	/* Map of the request parameters */
-	private Map<String, String> params;
+	
 
 	public GenericValomniaClientImpl(String baseUrl, String token,
 			String resourcePath, Class<T> typeElement) {
@@ -55,13 +53,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 		return this.token;
 	}
 
-	public Map<String, String> getParams() {
-		return params;
-	}
-
-	public void setParams(final Map<String, String> params) {
-		this.params = params;
-	}
+	
 
 	@Override
 	protected StringBuilder extendGetBaseUrl(final StringBuilder baseUrl) {
@@ -86,16 +78,14 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
 			final String url = encodage(parameters);
 
-			final HttpResponse response = getResponse("get",
-					this.getToken(), getBaseURL() + "list?" + url);
+			final HttpResponse response = getResponse("get", this.getToken(),
+					getBaseURL() + "list?" + url);
 			results = this.processResponse(response);
 
 		} catch (IOException e) {
 
 			logger.error("Http client exception ", e);
-		}
-
-		catch (Exception e) {
+		} catch (Exception e) {
 
 			logger.error("Http exception", e);
 
@@ -116,9 +106,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 	 */
 
 	public List<T> processResponse(final HttpResponse response)
-			throws Exception
-
-	{
+			throws ValomniaAPIException {
 
 		List<T> entities = null;
 		final String line = readResponseFromClientResponse(response);
@@ -146,15 +134,11 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 				entities = parseFromJson(list1, typeElement);
 				results.addAll(entities);
 
-			}
-
-			else
+			} else {
 				logger.error(" HTTP  code : "
 						+ response.getStatusLine().getStatusCode());
-
-		}
-
-		catch (Exception e) {
+			}
+		} catch (Exception e) {
 
 			logger.error("Http execption", e);
 		}
@@ -168,8 +152,8 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 		String line;
 		int saved;
 		HttpResponse response = null;
-		
-		String params;
+
+		String params=null;
 
 		try {
 
@@ -181,65 +165,63 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 			final Map<String, Object> map = BeanUtils.describe(object);
 
 			for (final Map.Entry<String, Object> entry : map.entrySet()) {
-				if (entry.getValue() != null)
+				if (entry.getValue() != null) {
 					parameters.add(new CustomNameValuePair(entry.getKey(),
 							(String) entry.getValue()));
+				}
 
 			}
 
 			params = encodage(parameters);
 
-			
-				response = getResponse("post", this.getToken(),
-						getBaseURL() + "saveOrUpdate?" + params);
+			try {
+				response = getResponse("post", this.getToken(), getBaseURL()
+						+ "saveOrUpdate?" + params);
+			} catch (Exception e) {
+				logger.error("Http execption", e);
 				
-			
-			
+			}
+
 			if (response.getStatusLine().getStatusCode() == 200) {
 
 				BufferedReader rd = new BufferedReader(new InputStreamReader(
 						response.getEntity().getContent()));
 
 				int saved1 = this.getAll().size();
+				line = rd.readLine();
 
-				if ((line = rd.readLine()) != null) {
-					if (saved != saved1)
+				if (line != null) {
+					if (saved != saved1) {
 						result = "Success created";
-					else
+					} else {
 						result = "Success Updated";
+					}
 				}
 
 			} else {
 
 				BufferedReader rd = new BufferedReader(new InputStreamReader(
 						response.getEntity().getContent()));
-				if ((line = rd.readLine()) != null) {
+				line = rd.readLine();
+				if (line != null) {
 
 					@SuppressWarnings("unchecked")
 					ArrayList<Object> errorsResponse = new Gson().fromJson(
 							line, ArrayList.class);
 
-					Type type = new TypeToken<List<String>>() {}.getType();
+					Type type = new TypeToken<List<String>>() {
+					}.getType();
 
 					String Temp = new Gson().toJson(errorsResponse);
 					List<String> errors = new Gson().fromJson(Temp, type);
-					result = errors.get(0)
-							+ errors.get(1);
+					result = errors.get(0) + errors.get(1);
 				}
 
 			}
 		} catch (ClientProtocolException e) {
 			logger.error("Http client exception", e);
 
-		} catch (HttpException e)
-
-			{
-				logger.error("Error Http ", e);
-
-			}
-                
-
-		catch (IOException e) {
+		} catch (IOException e) {
 
 			logger.error("Http client exception ", e);
 		}

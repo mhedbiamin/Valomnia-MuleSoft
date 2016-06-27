@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -28,7 +27,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-
 
 /**
  * Base class for client service . The class handles:
@@ -45,11 +43,13 @@ public abstract class AbstractValomniaClient<T> {
 		super();
 		this.baseUrl = baseUrl;
 	}
-     private static final Logger logger = Logger.getLogger(AbstractValomniaClient.class);
-	private  String baseUrl;
+
+	private static final Logger logger = Logger
+			.getLogger(AbstractValomniaClient.class);
+	private String baseUrl;
 	private static String encodage = "ISO-8859-1";
 	static Gson gson = null;
-	private static  DefaultHttpClient client;
+	private static DefaultHttpClient client;
 
 	/**
 	 * @return the base URL for the service, inclduing what is added by {
@@ -85,11 +85,10 @@ public abstract class AbstractValomniaClient<T> {
 				line = new String(line.getBytes("ISO-8859-1"), "UTF-8");
 			}
 		} catch (UnsupportedEncodingException e) {
-			logger.error("coding exception",e);
-		}
-
-		catch (final IOException e) {
-			logger.error("input output exception",e);
+			logger.error("coding exception", e);
+			
+		} catch (final IOException e) {
+			logger.error("input output exception", e);
 		}
 		return line;
 	}
@@ -113,12 +112,10 @@ public abstract class AbstractValomniaClient<T> {
 	 * 
 	 */
 
-	 public static  HttpResponse getResponse(final String type, final String token,
-			final String url) throws IOException,HttpException
-
-	{
+	public static HttpResponse getResponse(final String type,
+			final String token, final String url) throws Exception{
 		HttpResponse response = null;
-		if (type.equals("get")) {
+		if ("get".equals(type)) {
 			client = new DefaultHttpClient();
 			final HttpGet get = new HttpGet(url);
 			get.setHeader("Cookie", "JSESSIONID=" + token);
@@ -140,74 +137,63 @@ public abstract class AbstractValomniaClient<T> {
 	}
 
 	/**
-	 * Parse JSON to specified  List entity type
+	 * Parse JSON to specified List entity type
 	 *
-	 * @param Class<T> Type 
-	 *            of the entity to obtain
+	 * @param Class
+	 *            <T> Type of the entity to obtain
 	 * @param JsonArray
 	 *            JSON-formatted Array to parse
-	 * @return  List<T> parsed  entities List 
+	 * @return List<T> parsed entities List
 	 * @throws IOException
 	 *             if the string is not JSON-formatted
 	 */
-	 
-	   public static <T> List<T> parseFromJson(final JsonArray array, final Class<T> clazz) 
-				{
-		 List<T> lst =  new ArrayList<T>();
-			try {
-				gson = new Gson();
-				
-				
-				
-		        for(final JsonElement json: array){
-		            T entity = gson.fromJson(json, clazz);
-		            lst.add(entity);
-		        }
 
-		       
+	public static <T> List<T> parseFromJson(final JsonArray array,
+			final Class<T> clazz) {
+		List<T> lst = new ArrayList<T>();
+		try {
+			gson = new Gson();
 
-			} catch (final JsonParseException jpe) {
-				logger.error("Json exception",jpe);
-				
-				
+			for (final JsonElement json : array) {
+				T entity = gson.fromJson(json, clazz);
+				lst.add(entity);
 			}
-			 return lst;
+
+		} catch (final JsonParseException jpe) {
+			logger.error("Json exception", jpe);
 
 		}
+		return lst;
 
-
-	
+	}
 
 	/**
-	 * Parse JAVA String  to JsonArray  
+	 * Parse JAVA String to JsonArray
 	 *
-	 * @param response  String to parse
-	 * @param listName for specify the list name
-	 * @return JsonArray  formated
+	 * @param response
+	 *            String to parse
+	 * @param listName
+	 *            for specify the list name
+	 * @return JsonArray formated
 	 * @throws IOException
 	 *             if something happened in parsing
 	 */
 
-	
-	
-	 public static JsonArray parseToJson(final String response ,
-			final String  listName) 
-	{   JsonParser parser = new JsonParser();
-	JsonArray array=null;
+	public static JsonArray parseToJson(final String response,
+			final String listName) {
+		JsonParser parser = new JsonParser();
+		JsonArray array = null;
 		try {
-			
-			
-			JsonObject jsonObject = (JsonObject)  parser.parse(response);
-		    array=(JsonArray) jsonObject.get(listName);
-			 
-			
+
+			JsonObject jsonObject = (JsonObject) parser.parse(response);
+			array = (JsonArray) jsonObject.get(listName);
+
 		} catch (final JsonParseException jpe) {
-			logger.error("Json exeception",jpe);
-			
+			logger.error("Json exeception", jpe);
+
 		}
-		return  array;
+		return array;
 	}
-	
 
 	protected void setBaseUrl(String baseUrl) {
 		this.baseUrl = baseUrl;
