@@ -7,13 +7,14 @@
 package org.mule.modules.valomnia.client.impl;
 
 import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.log4j.Logger;
@@ -174,14 +175,12 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
 			params = encodage(parameters);
 
-			try {
+			
 				response = getResponse("post", this.getToken(), getBaseURL()
 						+ "saveOrUpdate?" + params);
-			} catch (Exception e) {
-				logger.error("Http execption", e);
+			
 				
-			}
-
+			
 			if (response.getStatusLine().getStatusCode() == 200) {
 
 				BufferedReader rd = new BufferedReader(new InputStreamReader(
@@ -223,7 +222,10 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 
 		} catch (IOException e) {
 
-			logger.error("Http client exception ", e);
+			logger.error("IO  exception ", e);
+		} catch (Exception e) {
+			logger.error("exception from  HttpResponse", e);
+			
 		}
 
 		return result;
