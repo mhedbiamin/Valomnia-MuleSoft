@@ -409,8 +409,7 @@ public class ValomniaConnector {
      */
 
     @Processor
-    public List<CustomerCategoryPriceList> findCustomersCategoryPriceList()
-               {
+    public List<CustomerCategoryPriceList> findCustomersCategoryPriceList() {
         return this.config.getClientProvider()
                 .getClient(CustomerCategoryPriceList.class)
                 .getAll();
@@ -426,8 +425,7 @@ public class ValomniaConnector {
      */
 
     @Processor
-    public List<CustomerCategoryTaxList> findCustomersCategoryTaxList()
-               {
+    public List<CustomerCategoryTaxList> findCustomersCategoryTaxList() {
         return this.config.getClientProvider()
                 .getClient(CustomerCategoryTaxList.class)
                 .getAll();

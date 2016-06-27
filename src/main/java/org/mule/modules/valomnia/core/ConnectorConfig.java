@@ -28,9 +28,10 @@ import org.mule.modules.valomnia.client.ValomniaClientProvider;
 import org.mule.modules.valomnia.client.impl.ValomniaClientProviderImpl;
 import com.google.gson.Gson;
 
-@ConnectionManagement( configElementName = "config",friendlyName = "Configuration")
+@ConnectionManagement(configElementName = "config", friendlyName = "Configuration")
 public class ConnectorConfig {
-	private static final Logger logger=Logger.getLogger(ConnectorConfig.class);
+	private static final Logger logger = Logger
+			.getLogger(ConnectorConfig.class);
 	private String token;
 	private String user;
 	private String password;
@@ -53,7 +54,7 @@ public class ConnectorConfig {
 	 * @param password
 	 *            a password
 	 * @param baseUrl
-	 *            a baseUrl of Valomnia API       
+	 *            a baseUrl of Valomnia API
 	 * 
 	 * @throws ConnectionException
 	 *             if the username or password incorrect
@@ -61,26 +62,24 @@ public class ConnectorConfig {
 	@Connect
 	@TestConnectivity
 	public void connect(@ConnectionKey String username,
-			@Password String password,String baseUrl) throws ConnectionException {
-         if (!(baseUrl.endsWith("/")))
-         {
-		    baseUrl+="/";
-         }
-			this.user = username;
-			this.password = password;
-			this.baseUrl=baseUrl;
-			this.token = getAuthToken();
-			if( token!=null)
-			setClientProvider(new ValomniaClientProviderImpl(baseUrl, password,
+			@Password String password, String baseUrl)
+			throws ConnectionException {
+		if (!(baseUrl.endsWith("/"))) {
+			baseUrl += "/";
+		}
+		this.user = username;
+		this.password = password;
+		this.baseUrl = baseUrl;
+		this.token = getAuthToken();
+		if (token != null) {
+			setClientProvider(new ValomniaClientProviderImpl(baseUrl,
 					token));
-			else 
+		} else {
 			throw new ConnectionException(
 					ConnectionExceptionCode.INCORRECT_CREDENTIALS,
 					"invalid credentials", "Invalid credentials");
 		}
-         
-	
-	
+	}
 
 	/**
 	 * Disconnect
@@ -120,9 +119,7 @@ public class ConnectorConfig {
 
 		String test = null;
 		try {
-			
-			
-			
+
 			final DefaultHttpClient client = new DefaultHttpClient();
 
 			final List<CustomNameValuePair> parameters = new ArrayList<CustomNameValuePair>();
@@ -132,104 +129,94 @@ public class ConnectorConfig {
 
 			final String url = encodage(parameters);
 
-			final HttpPost post = new HttpPost(
-					getBaseUrl()+"j_spring_security_check?"
-							+ url);
+			final HttpPost post = new HttpPost(getBaseUrl()
+					+ "j_spring_security_check?" + url);
 
 			post.setHeader("Content-type", "application/json");
-			
-				final HttpResponse response = client.execute(post);
-				HttpResponse response2 = null;
 
-				if (response.getStatusLine().getStatusCode() == 302) {
+			final HttpResponse response = client.execute(post);
+			HttpResponse response2 = null;
 
-					final String loc = response.getFirstHeader("Location")
-							.getValue();
+			if (response.getStatusLine().getStatusCode() == 302) {
 
-					final String cookie = response.getFirstHeader("Set-Cookie")
-							.getValue();
-					final String token = cookie.substring(11,
-							cookie.indexOf(";"));
+				final String loc = response.getFirstHeader("Location")
+						.getValue();
 
-					if (loc != null) {
+				final String cookie = response.getFirstHeader("Set-Cookie")
+						.getValue();
+				final String token1 = cookie.substring(11, cookie.indexOf(";"));
 
-						final DefaultHttpClient client2 = new DefaultHttpClient();
+				if (loc != null) {
 
-						final HttpPost post2 = new HttpPost(loc);
-						post2.setHeader("Content-type",
-								"application/json;charset=UTF-8");
-						post2.setHeader("Cookie", "JSESSIONID=" + token);
-						response2 = client2.execute(post2);
+					final DefaultHttpClient client2 = new DefaultHttpClient();
 
-					}
+					final HttpPost post2 = new HttpPost(loc);
+					post2.setHeader("Content-type",
+							"application/json;charset=UTF-8");
+					post2.setHeader("Cookie", "JSESSIONID=" + token1);
+					response2 = client2.execute(post2);
 
 				}
 
-				if (response2.getStatusLine().getStatusCode() != 200) {
-					System.out.println("Failed : HTTP error code : "
-							+ response2.getStatusLine().getStatusCode());
-				} else {
-
-					final BufferedReader reader = new BufferedReader(
-							new InputStreamReader(response2.getEntity()
-									.getContent()));
-
-					final String line = reader.readLine();
-					if (line != null) {
-
-						@SuppressWarnings("unchecked")
-						final Map<String, Object> javaRootMapObject = new Gson()
-								.fromJson(line, Map.class);
-						if (javaRootMapObject != null
-								&& javaRootMapObject.get("token") != null) {
-
-							test = javaRootMapObject.get("token").toString();
-
-						}
-					}
-
-				}
-			} catch (HttpHostConnectException e) {
-				test = "HttpHostConnectException";
-				logger.error("Http exception",e);
 			}
-		        catch (Exception cpe) {
-			   logger.error("Http exception",cpe);
+
+			if (response2.getStatusLine().getStatusCode() != 200) {
+				System.out.println("Failed : HTTP error code : "
+						+ response2.getStatusLine().getStatusCode());
+			} else {
+
+				final BufferedReader reader = new BufferedReader(
+						new InputStreamReader(response2.getEntity()
+								.getContent()));
+
+				final String line = reader.readLine();
+				if (line != null) {
+
+					@SuppressWarnings("unchecked")
+					final Map<String, Object> javaRootMapObject = new Gson()
+							.fromJson(line, Map.class);
+					if (javaRootMapObject != null
+							&& javaRootMapObject.get("token") != null) {
+
+						test = javaRootMapObject.get("token").toString();
+
+					}
+				}
+
+			}
+		} catch (HttpHostConnectException e) {
+			test = "HttpHostConnectException";
+			logger.error("Http exception", e);
+		} catch (Exception cpe) {
+			logger.error("Http exception", cpe);
 		}
-		
+
 		return test;
 
 	}
 
-    
-    public String getUser() {
-        return user;
-    }
+	public String getUser() {
+		return user;
+	}
 
-    
-    public void setUser(String user) {
-        this.user = user;
-    }
+	public void setUser(String user) {
+		this.user = user;
+	}
 
-    
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    
-    public String getBaseUrl() {
-        return baseUrl;
-    }
+	public String getBaseUrl() {
+		return baseUrl;
+	}
 
-    
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-	
+	public void setBaseUrl(String baseUrl) {
+		this.baseUrl = baseUrl;
+	}
 
 }

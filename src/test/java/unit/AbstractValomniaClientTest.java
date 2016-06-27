@@ -39,7 +39,7 @@ public class AbstractValomniaClientTest {
 	}
 
 	@Test
-	public void testGetResponseThrownHttpException()
+	public void testGetResponseThrownHttpException() throws Exception
 
 	{
 
@@ -79,7 +79,7 @@ public class AbstractValomniaClientTest {
 	}	
 		
 		@Test
-		public  void testGetResponseWithNoToken() throws IOException, HttpException
+		public  void testGetResponseWithNoToken() throws Exception
 		
 		
 		{    GenericValomniaClientImpl<Item> obj=   new  GenericValomniaClientImpl<Item>("http;//testUrl.com/", null ,

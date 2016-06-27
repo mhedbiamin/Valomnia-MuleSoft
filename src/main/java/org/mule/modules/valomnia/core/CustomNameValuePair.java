@@ -46,8 +46,9 @@ public class CustomNameValuePair implements NameValuePair {
 	}
 
 	public boolean equals(final Object object) {
-		if (this == object)
+		if (this == object){
 			return true;
+		}
 		if (object instanceof CustomNameValuePair) {
 			CustomNameValuePair that = (CustomNameValuePair) object;
 			return this.name.equals(that.name)

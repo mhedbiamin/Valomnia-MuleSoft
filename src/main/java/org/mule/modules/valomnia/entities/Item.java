@@ -261,33 +261,45 @@ public class Item {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()){
 			return false;
+			}
 		Item other = (Item) obj;
 		if (categoryReference == null) {
 			if (other.categoryReference != null)
+			{
 				return false;
-		} else if (!categoryReference.equals(other.categoryReference))
+			}
+		} else if (!categoryReference.equals(other.categoryReference)){
 			return false;
+			}
 		if (id == null) {
-			if (other.id != null)
+			if (other.id != null){
 				return false;
-		} else if (!id.equals(other.id))
+			}
+		} else if (!id.equals(other.id)){
 			return false;
+			}
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null){
 				return false;
-		} else if (!name.equals(other.name))
+				}
+		} else if (!name.equals(other.name)){
 			return false;
+			}
 		if (reference == null) {
-			if (other.reference != null)
+			if (other.reference != null){
 				return false;
-		} else if (!reference.equals(other.reference))
+				}
+		} else if (!reference.equals(other.reference)){
 			return false;
+			}
 		return true;
 	}
 
