@@ -1,4 +1,4 @@
-package unit;
+package org.mule.modules.valomnia.automation.unit;
 
 import static org.junit.Assert.*;
 
