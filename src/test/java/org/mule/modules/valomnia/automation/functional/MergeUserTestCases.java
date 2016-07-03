@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.User;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergeUserTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -39,13 +38,9 @@ public class MergeUserTestCases extends AbstractTestCase<ValomniaConnector> {
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-        ArrayList<User> list1 = new Gson().fromJson(js, listType);
+        
 
-        for (User user : list1)
+        for (User user : list)
         {
             if (user.getEmail().equals("Test@valomnia.com"))
                     

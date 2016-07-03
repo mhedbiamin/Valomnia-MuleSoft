@@ -64,14 +64,14 @@ To create a global Valomnia configuration:
 2.  On the Global Mule Configuration Elements screen, click *Create*.
 3.  In the *Choose Global Type* wizard, expand *Connector Configuration*, and then select *Valomnia Connector: configuration (Signature)*.
 +
-image::valomnia.PNG[Connector Configuration, 500]
+image::valomnia.png[Connector Configuration, 500]
 +
 4.  Click *OK*.
 5.  Enter the global element properties:
 
 a. For Valomnia Connector: Configuration:
 +
-image::Configuration.PNG[Global Configuration, 500]
+image::Configuration.png[Global Configuration, 500]
 +
 [width="100%", options="header"]
 |=======
@@ -109,7 +109,7 @@ is
 . Drag the Valomnia connector onto the canvas, then select it to open the properties editor.
 . Configure the connector's parameters:
 +
-image::FindItemsConfig.PNG[Connector Parameters, 500]
+image::FindItemsConfig.png[Connector Parameters, 500]
 +
 [width="100%", options="header"]
 |=======
@@ -125,7 +125,7 @@ image::FindItemsConfig.PNG[Connector Parameters, 500]
 
 Create a Mule flow to get Items from the Valomnia account.
 
-image::getItemsflow.PNG[Demo Flow, 500]
+image::getItemsflow.png[Demo Flow, 500]
 
 . Create a Mule project in your Anypoint Studio.
 . Drag an HTTP connector into the canvas, then select it to open the properties editor console.
@@ -136,7 +136,7 @@ image::HTTP.png[HTTP Listener, 500]
 +
 .. Configure the following HTTP parameters, while retaining the default values for the other fields, expect base path:
 +
-image::httplistenerconfiguration.PNG[HTTP Parameters, 500]
+image::httplistenerconfiguration.png[HTTP Parameters, 500]
 +
 [width="100%", options="header"]
 |=======
@@ -150,7 +150,7 @@ image::httplistenerconfiguration.PNG[HTTP Parameters, 500]
 . If you haven't already created a valomnia global element, add one by clicking the plus sign next to the Connector Configuration field.
 . Configure the global element.
 +
-image::Configuration.PNG[Global Configuration, 500]
+image::Configuration.png[Global Configuration, 500]
 
 . Add a XML to JSON transformer
 . Save and run the project as a Mule Application.

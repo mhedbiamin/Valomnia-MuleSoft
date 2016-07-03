@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,6 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.EmployeeGroup;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
 
 public class MergeEmployeeGroupTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -38,13 +36,9 @@ public class MergeEmployeeGroupTestCases extends AbstractTestCase<ValomniaConnec
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<EmployeeGroup>>() {}.getType();
-        ArrayList<EmployeeGroup> list1 = new Gson().fromJson(js, listType);
+  
 
-        for (EmployeeGroup employeeGroup : list1)
+        for (EmployeeGroup employeeGroup : list)
         {
             if (employeeGroup.getReference().equals("ref test EmployeeGroup"))
                     

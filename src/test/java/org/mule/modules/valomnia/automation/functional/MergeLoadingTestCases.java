@@ -5,18 +5,18 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
-import com.google.common.reflect.TypeToken;
+
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Loading;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.gson.Gson;
+
 
 public class MergeLoadingTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -39,13 +39,9 @@ public class MergeLoadingTestCases extends AbstractTestCase<ValomniaConnector> {
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<Loading>>() {}.getType();
-        ArrayList<Loading> list1 = new Gson().fromJson(js, listType);
+        
 
-        for (Loading loading : list1)
+        for (Loading loading : list)
         {
             if (loading.getReference().equals("ref test Loading"))
                     

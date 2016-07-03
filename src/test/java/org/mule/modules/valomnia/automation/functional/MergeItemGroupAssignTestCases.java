@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.ItemGroupAssign;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergeItemGroupAssignTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -38,13 +37,9 @@ public class MergeItemGroupAssignTestCases extends AbstractTestCase<ValomniaConn
 
         e.printStackTrace();
     }
-    Gson gson = new Gson();
-    String js = gson.toJson(list);
-    @SuppressWarnings("serial")
-    Type listType = new TypeToken<ArrayList<ItemGroupAssign>>() {}.getType();
-    ArrayList<ItemGroupAssign> list1 = new Gson().fromJson(js, listType);
+   
 
-    for (ItemGroupAssign itemGroupAssign : list1)
+    for (ItemGroupAssign itemGroupAssign : list)
     {
         if (itemGroupAssign.getItemGroupReference().equals("ref test ItemGroup")&
                 itemGroupAssign.getItemReference().equals("ref test Item"))

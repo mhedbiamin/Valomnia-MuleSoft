@@ -26,9 +26,11 @@ public class FindAttributesValueTestCases extends AbstractTestCase<ValomniaConne
             assertTrue(getConnector().findAttributesValue().size() > 0);
             for(Object obj:getConnector().findAttributesValue())
                 assertTrue(obj.getClass().equals(AttributeValue.class));
+            
 
             
            
 
     }
+    
 }

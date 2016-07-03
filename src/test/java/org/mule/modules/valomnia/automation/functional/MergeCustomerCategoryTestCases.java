@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.CustomerCategory;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergeCustomerCategoryTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -38,15 +37,9 @@ public class MergeCustomerCategoryTestCases extends AbstractTestCase<ValomniaCon
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
+        
 
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<CustomerCategory>>() {
-        }.getType();
-        ArrayList<CustomerCategory> list1 = new Gson().fromJson(js, listType);
-
-        for (CustomerCategory customerCategory : list1)
+        for (CustomerCategory customerCategory : list)
         {
             if (customerCategory.getReference()
                     .equals("ref test CustomerCategory"))

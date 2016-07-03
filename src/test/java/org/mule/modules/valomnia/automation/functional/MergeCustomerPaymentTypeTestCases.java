@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.CustomerPaymentType;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergeCustomerPaymentTypeTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -38,14 +37,9 @@ public class MergeCustomerPaymentTypeTestCases extends AbstractTestCase<Valomnia
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
        
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<CustomerPaymentType>>() {}.getType();
-        ArrayList<CustomerPaymentType> list1 = new Gson().fromJson(js, listType);
 
-        for (CustomerPaymentType customerPaymentType : list1)
+        for (CustomerPaymentType customerPaymentType : list)
         {
             if (customerPaymentType.getReference()
                     .equals("ref test CustomerPaymentType"))

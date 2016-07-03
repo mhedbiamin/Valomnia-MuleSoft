@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Tax;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 
 public class MergeTaxTestCases extends AbstractTestCase<ValomniaConnector> {
@@ -39,13 +38,9 @@ public class MergeTaxTestCases extends AbstractTestCase<ValomniaConnector> {
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<Tax>>() {}.getType();
-        ArrayList<Tax> list1 = new Gson().fromJson(js, listType);
+        
 
-        for (Tax tax : list1)
+        for (Tax tax : list)
         {
             if (tax.getItemReference().equals("ref test Item")&tax.getTaxListName().equals("test TaxList"))
                 exist = true;

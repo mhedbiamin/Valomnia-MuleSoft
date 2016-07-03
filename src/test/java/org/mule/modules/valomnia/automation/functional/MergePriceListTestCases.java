@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.PriceList;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergePriceListTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -38,14 +37,8 @@ public class MergePriceListTestCases extends AbstractTestCase<ValomniaConnector>
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
        
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<PriceList>>() {}.getType();
-        ArrayList<PriceList> list1 = new Gson().fromJson(js, listType);
-
-        for (PriceList priceList : list1)
+        for (PriceList priceList : list)
         {
             if (priceList.getReference()
                     .equals("ref test PriceList"))

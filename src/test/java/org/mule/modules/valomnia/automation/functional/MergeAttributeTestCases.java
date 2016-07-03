@@ -5,8 +5,8 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +14,7 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Attribute;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
 
 public class MergeAttributeTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -40,15 +39,9 @@ public class MergeAttributeTestCases extends AbstractTestCase<ValomniaConnector>
 
                 e.printStackTrace();
             }
-            Gson gson = new Gson();
-            String js = gson.toJson(list);
            
-           
-            @SuppressWarnings("serial")
-            Type listType = new TypeToken<ArrayList<Attribute>>() {}.getType();
-            ArrayList<Attribute> list1 = new Gson().fromJson(js, listType);
 
-            for (Attribute attribute: list1)
+            for (Attribute attribute: list)
             {
                 if( attribute.getReference()!=null)
                         if (attribute.getReference().equals("ref test Attribute"))

@@ -3,10 +3,11 @@
  */
 package org.mule.modules.valomnia.automation.functional;
 
+
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import org.junit.Test;
@@ -14,8 +15,8 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.WareHouse;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+
+
 
 public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector> {
 
@@ -39,13 +40,9 @@ public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector>
 
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String js = gson.toJson(list);
-        @SuppressWarnings("serial")
-        Type listType = new TypeToken<ArrayList<WareHouse>>() {}.getType();
-        ArrayList<WareHouse> list1 = new Gson().fromJson(js, listType);
+       
 
-        for (WareHouse wareHouse : list1)  
+        for (WareHouse wareHouse : list)  
         {
             if (wareHouse.getReference().equals("ref test WareHouse"))
                     
