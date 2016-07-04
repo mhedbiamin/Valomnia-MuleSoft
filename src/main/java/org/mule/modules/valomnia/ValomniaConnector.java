@@ -696,7 +696,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -713,7 +713,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-category-price-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -730,7 +730,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-category}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -748,7 +748,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-price-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -766,7 +766,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-category-tax-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
    
@@ -784,7 +784,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item-category}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
    
@@ -803,7 +803,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-tax-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -820,7 +820,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-contact}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -839,7 +839,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -855,7 +855,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item-attribute}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -871,7 +871,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-attribute}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -888,7 +888,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-employee}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -906,7 +906,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-group}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -923,7 +923,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-employee}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -939,7 +939,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-group-assign}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -959,7 +959,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-user-authority}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     
@@ -976,7 +976,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-authority}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -995,7 +995,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-payment-type}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1012,7 +1012,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-price-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1029,7 +1029,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-customer-tax-list}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1047,7 +1047,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-employee-group}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1062,7 +1062,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-tax}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1079,7 +1079,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item-group}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1096,7 +1096,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item-group-assign}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1114,7 +1114,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-attribute-value}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1130,7 +1130,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-item-unit}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1147,7 +1147,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-loading}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1164,7 +1164,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-loading-details}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1181,7 +1181,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-order-detail}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1196,7 +1196,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-order-payment}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1213,7 +1213,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-price}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1229,7 +1229,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-order}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1246,7 +1246,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-tax-type}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1264,7 +1264,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-unit}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1280,7 +1280,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-user}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
 
@@ -1298,7 +1298,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-ware-house}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
@@ -1315,7 +1315,7 @@ public class ValomniaConnector {
      * { @sample.xml /valomnia-connector/doc/valomnia-connector.xml.sample valomnia:merge-ware-house-stock}
      * 
      * @param obj
-     *            the input object merged  d
+     *            the input object merged  
      * @return response String for Valomnia API
      */
     @Processor
