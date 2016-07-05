@@ -6,10 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
-
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -60,6 +56,23 @@ public class MergeCustomerGroupTestCases extends AbstractTestCase<ValomniaConnec
             assertEquals(getConnector().mergeCustomerGroup(obj), expected1);
     }
 
+
+    
+    @Test
+    public void verifyCustomerGroupSaved() {
+    	
+    	List<CustomerGroup> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findCustomersGroup();
+        
+        for (CustomerGroup customerGroup:list)
+        { if ( customerGroup.getReference().equals("ref test CustomerGroup")&&  
+        		customerGroup.getName().equals("test name  CustomerGroup"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 
 
     }

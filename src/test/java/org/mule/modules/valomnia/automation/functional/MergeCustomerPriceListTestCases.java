@@ -6,7 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -62,6 +61,21 @@ public class MergeCustomerPriceListTestCases extends AbstractTestCase<ValomniaCo
     }
 
 
+    @Test
+    public void verifyCustomerPriceListSaved() {
+    	
+    	List<CustomerPriceList> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findCustomersPriceList();
+        
+        for (CustomerPriceList customerPriceList:list)
+        { if ( customerPriceList.getCustomerReference().equals("ref test Customer")&&  
+        		customerPriceList.getPriceListReference().equals("ref test PriceList"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 
     }
 

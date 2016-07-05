@@ -6,7 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -62,4 +61,19 @@ public class MergeAttributeTestCases extends AbstractTestCase<ValomniaConnector>
             else
                 assertEquals(getConnector().mergeAttribute(obj), expected1);
         }
+    
+    @Test
+    public void verifyAttributeSaved() {
+    	
+    	List<Attribute> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findAttributs();
+        
+        for (Attribute  attribute:list)
+        { if ( attribute.getReference().equals("ref test Attribute"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 }

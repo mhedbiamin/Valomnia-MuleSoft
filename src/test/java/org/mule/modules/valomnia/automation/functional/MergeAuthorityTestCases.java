@@ -6,8 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -60,6 +58,20 @@ public class MergeAuthorityTestCases extends AbstractTestCase<ValomniaConnector>
 
 
 
+    @Test
+    public void verifyAuthoritySaved() {
+    	
+    	List<Authority> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findAuthority();
+        
+        for (Authority  authority:list)
+        { if ( authority.getName().equals("test Authority"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
     }
 
 
