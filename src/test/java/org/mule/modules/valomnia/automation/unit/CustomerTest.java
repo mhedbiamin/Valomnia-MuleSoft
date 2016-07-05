@@ -42,11 +42,11 @@ public class CustomerTest {
 			
 			
 			Customer  customer1 = new Customer();
-			customer.setId(3);
-			customer.setReference("test reference");
-			customer.setEmail("email1@test.com");
-			customer.setName("customer test");
-			customer.setAddress(" test adress 1");
+			customer1.setId(3);
+			customer1.setReference("test reference");
+			customer1.setEmail("email1@test.com");
+			customer1.setName("customer test");
+			customer1.setAddress(" test adress 1");
 			
 			assertFalse(customer.equals(customer1));
 			
