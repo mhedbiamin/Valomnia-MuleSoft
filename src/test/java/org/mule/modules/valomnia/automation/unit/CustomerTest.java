@@ -20,11 +20,11 @@ public class CustomerTest {
 			customer.setAddress(" test adress");
 			
 			Customer  customer1 = new Customer();
-			customer.setId(3);
-			customer.setReference("test reference");
-			customer.setEmail("email@test.com");
-			customer.setName("customer test");
-			customer.setAddress(" test adress");
+			customer1.setId(3);
+			customer1.setReference("test reference");
+			customer1.setEmail("email@test.com");
+			customer1.setName("customer test");
+			customer1.setAddress(" test adress");
 			
 			assertEquals(customer,customer1);
 			
