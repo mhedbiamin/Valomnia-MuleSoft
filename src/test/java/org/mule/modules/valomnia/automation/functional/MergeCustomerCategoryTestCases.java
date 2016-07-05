@@ -6,11 +6,11 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
+
 import java.util.List;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
-import org.mule.modules.valomnia.entities.Customer;
 import org.mule.modules.valomnia.entities.CustomerCategory;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
@@ -57,15 +57,15 @@ public class MergeCustomerCategoryTestCases extends AbstractTestCase<ValomniaCon
     
     
     @Test
-    public void verifyCustomerSaved() {
+    public void verifyCustomerCategorySaved() {
     	
-    	List<Customer> list = null;
+    	List<CustomerCategory> list = null;
     	boolean   exist=false;
         
-            list = getConnector().findCustomers();
+            list = getConnector().findCustomersCategory();
         
-        for (Customer customer:list)
-        { if ( customer.getReference().equals("ref test CustomerCategory"))
+        for (CustomerCategory customerCategory:list)
+        { if ( customerCategory.getReference().equals("ref test CustomerCategory"))
         	
             exist=true;
         }
