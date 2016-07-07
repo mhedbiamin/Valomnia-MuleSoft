@@ -4,7 +4,6 @@
 package org.mule.modules.valomnia.automation.runner;
 
 import org.junit.AfterClass;
-
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -46,6 +45,7 @@ import org.mule.modules.valomnia.automation.functional.FindUsersTestCases;
 import org.mule.modules.valomnia.automation.functional.FindWareHouseStocksTestCases;
 import org.mule.modules.valomnia.automation.functional.FindWareHousesTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeContactTestCases;
+import org.mule.modules.valomnia.automation.functional.MergeCustomerCategoryTaxListTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerGroupAssignTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerGroupTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerTestCases;
@@ -113,7 +113,7 @@ import org.mule.modules.valomnia.automation.functional.MergeItemAttributeTestCas
 		MergeCustomerGroupTestCases.class, MergeUnitTestCases.class,
 		MergeUserTestCases.class, MergeTaxListTestCases.class,
 		MergePriceListTestCases.class, MergePriceTestCases.class,
-		MergeCustomerCategoryTestCases.class,
+		MergeCustomerCategoryTestCases.class,MergeCustomerCategoryTaxListTestCases.class,
 		MergeCustomerPaymentTypeTestCases.class, MergeWareHouseTestCases.class,
 		MergeItemUnitTestCases.class, MergeAuthorityTestCases.class,
 		MergeUserAuthorityTestCases.class, MergeLoadingTestCases.class,

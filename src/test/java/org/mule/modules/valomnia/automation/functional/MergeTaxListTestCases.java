@@ -50,7 +50,7 @@ public class MergeTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
         }
         
         obj.setName("test TaxList");
-        obj.setTaxType("Pourcentage %");
+        obj.setTaxType("Percentage %");
         obj.setReference("ref test TaxList");
         
        
