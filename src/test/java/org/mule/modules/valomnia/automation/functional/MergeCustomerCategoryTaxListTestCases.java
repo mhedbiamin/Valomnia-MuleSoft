@@ -44,18 +44,15 @@ public class MergeCustomerCategoryTaxListTestCases extends AbstractTestCase<Valo
         {   if (customerCategoryTaxList.getCustomerCategoryReference()!=null)
         
             if ((customerCategoryTaxList.getCustomerCategoryReference().equals("ref test CustomerCategory"))&
-                    (customerCategoryTaxList.getTaxListName().equals("test TaxList")))
+                    (customerCategoryTaxList.getTaxListReference().equals("ref test TaxList")))
                 exist = true;
             
         }
         
         obj.setCustomerCategoryReference("ref test CustomerCategory");
-        obj.setTaxListName("test TaxList");
-        
-        
-        
+        obj.setTaxListReference("ref test TaxList");
        
-
+       
         
 
         if (!exist)

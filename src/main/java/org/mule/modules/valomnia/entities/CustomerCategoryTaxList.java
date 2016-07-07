@@ -6,72 +6,126 @@
  */
 package org.mule.modules.valomnia.entities;
 
+
+import javax.annotation.Generated;
+
+@Generated("org.jsonschema2pojo")
 public class CustomerCategoryTaxList {
-	private String id;
 
-	private String organization;
+private Integer id;
+private Object taxListReference;
+private String customerCategoryReference;
+private String organization;
+private String dateCreated;
+private String lastUpdated;
 
-	private String customerCategoryReference;
 
-	private String lastUpdated;
+/**
+* 
+* @return
+* The id
+*/
+public Integer getId() {
+return id;
+}
 
-	private String dateCreated;
+/**
+* 
+* @param id
+* The id
+*/
+public void setId(Integer id) {
+this.id = id;
+}
 
-	private String taxListName;
+/**
+* 
+* @return
+* The taxListReference
+*/
+public Object getTaxListReference() {
+return taxListReference;
+}
 
-	public String getId() {
-		return id;
-	}
+/**
+* 
+* @param taxListReference
+* The taxListReference
+*/
+public void setTaxListReference(Object taxListReference) {
+this.taxListReference = taxListReference;
+}
 
-	public void setId(String id) {
-		this.id = id;
-	}
+/**
+* 
+* @return
+* The customerCategoryReference
+*/
+public String getCustomerCategoryReference() {
+return customerCategoryReference;
+}
 
-	public String getOrganization() {
-		return organization;
-	}
+/**
+* 
+* @param customerCategoryReference
+* The customerCategoryReference
+*/
+public void setCustomerCategoryReference(String customerCategoryReference) {
+this.customerCategoryReference = customerCategoryReference;
+}
 
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
+/**
+* 
+* @return
+* The organization
+*/
+public String getOrganization() {
+return organization;
+}
 
-	public String getCustomerCategoryReference() {
-		return customerCategoryReference;
-	}
+/**
+* 
+* @param organization
+* The organization
+*/
+public void setOrganization(String organization) {
+this.organization = organization;
+}
 
-	public void setCustomerCategoryReference(String customerCategoryReference) {
-		this.customerCategoryReference = customerCategoryReference;
-	}
+/**
+* 
+* @return
+* The dateCreated
+*/
+public String getDateCreated() {
+return dateCreated;
+}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
+/**
+* 
+* @param dateCreated
+* The dateCreated
+*/
+public void setDateCreated(String dateCreated) {
+this.dateCreated = dateCreated;
+}
 
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
+/**
+* 
+* @return
+* The lastUpdated
+*/
+public String getLastUpdated() {
+return lastUpdated;
+}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
+/**
+* 
+* @param lastUpdated
+* The lastUpdated
+*/
+public void setLastUpdated(String lastUpdated) {
+this.lastUpdated = lastUpdated;
+}
 
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public String getTaxListName() {
-		return taxListName;
-	}
-
-	public void setTaxListName(String taxListName) {
-		this.taxListName = taxListName;
-	}
-
-	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", customerCategoryReference = " + customerCategoryReference
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + ", taxListName = " + taxListName + "]";
-	}
 }
