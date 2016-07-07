@@ -43,7 +43,7 @@ public class MergeTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
 
         for (TaxList taxList : list)
         {
-            if (taxList.getName().equals("test TaxList"))
+            if (taxList.getName().equals("test TaxList")&&taxList.getReference().equals("ref test TaxList"))
             
                     
                 exist = true;
