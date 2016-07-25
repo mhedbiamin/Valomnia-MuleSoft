@@ -127,4 +127,56 @@ public class Employee {
 				+ ", employeeGroupReference = " + employeeGroupReference
 				+ ", reference = " + reference + ", mobile = " + mobile + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((mobile == null) ? 0 : mobile.hashCode());
+		result = prime * result
+				+ ((reference == null) ? 0 : reference.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (mobile == null) {
+			if (other.mobile != null)
+				return false;
+		} else if (!mobile.equals(other.mobile))
+			return false;
+		if (reference == null) {
+			if (other.reference != null)
+				return false;
+		} else if (!reference.equals(other.reference))
+			return false;
+		return true;
+	}
 }
