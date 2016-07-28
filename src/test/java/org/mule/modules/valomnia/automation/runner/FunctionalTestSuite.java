@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
+import org.mule.modules.valomnia.automation.functional.EntitiesTestCases;
 import org.mule.modules.valomnia.automation.functional.FindAttributsTestCases;
 import org.mule.modules.valomnia.automation.functional.FindAuthorityTestCases;
 import org.mule.modules.valomnia.automation.functional.FindContactsTestCases;
@@ -84,7 +85,9 @@ import org.mule.modules.valomnia.automation.functional.MergeItemAttributeTestCas
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ FindAttributesValueTestCases.class, FindItemsTestCases.class,
+@SuiteClasses({
+	EntitiesTestCases.class,
+	FindAttributesValueTestCases.class, FindItemsTestCases.class,
 		FindItemsGroupTestCases.class, FindAttributsTestCases.class,
 		FindUsersTestCases.class, FindAuthorityTestCases.class,
 		FindTaxsTestCases.class, FindContactsTestCases.class,
