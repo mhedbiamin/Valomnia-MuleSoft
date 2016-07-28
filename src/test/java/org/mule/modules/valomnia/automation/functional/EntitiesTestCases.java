@@ -1,10 +1,13 @@
 package org.mule.modules.valomnia.automation.functional;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
+
+import javax.validation.constraints.AssertTrue;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Employee;
+import org.mule.modules.valomnia.entities.EmployeeGroup;
 import org.mule.modules.valomnia.entities.User;
 import org.mule.modules.valomnia.entities.UserAuthority;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
@@ -39,5 +42,14 @@ public class EntitiesTestCases   extends AbstractTestCase<ValomniaConnector> {
 		 userAuthority.setUserEmail("test@test.com");
 		 assertNotNull( getConnector().mergeUserAuthority(userAuthority));
 		 
+		 EmployeeGroup  employeeGroup=new EmployeeGroup();
+		 employeeGroup.setName("Test EmployeeGroup");
+		 employeeGroup.setReference("Test EmployeeGroup Reference");
+		 assertNotNull( getConnector().mergeEmployeeGroup(employeeGroup));
+		 
+		 employee.setEmployeeGroupReference("Test EmployeeGroup Reference");
+		 
+		 assertTrue(getConnector().mergeEmployee(employee).equals("Success Updated"));
+		
 	 }
 }
