@@ -166,7 +166,7 @@ public class GenericValomniaClientImpl<T> extends AbstractValomniaClient<T>
 			final Map<String, Object> map = BeanUtils.describe(object);
 
 			for (final Map.Entry<String, Object> entry : map.entrySet()) {
-				if (entry.getValue() != null) {
+				if ((entry.getValue() != null)&& (entry.getValue() instanceof String))  {
 					parameters.add(new CustomNameValuePair(entry.getKey(),
 							(String) entry.getValue()));
 				}
