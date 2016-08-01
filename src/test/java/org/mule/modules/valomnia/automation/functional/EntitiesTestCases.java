@@ -1,9 +1,9 @@
+/**
+ * (c) 2003-2016 MuleSoft, Inc. The software in this package is published under the terms of the Commercial Free Software license V.1, a copy of which has been included with this distribution in the LICENSE.md file.
+ */
 package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
-
-import javax.validation.constraints.AssertTrue;
-
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Employee;
@@ -50,6 +50,9 @@ public class EntitiesTestCases   extends AbstractTestCase<ValomniaConnector> {
 		 employee.setEmployeeGroupReference("Test EmployeeGroup Reference");
 		 
 		 assertTrue(getConnector().mergeEmployee(employee).equals("Success Updated"));
+		 
+		 
+		 
 		
 	 }
 }
