@@ -13,8 +13,6 @@ public class Contact {
 
 	private String fax;
 
-	private String lastUpdated;
-
 	private String phone2;
 
 	private String photo;
@@ -25,8 +23,6 @@ public class Contact {
 
 	private String country;
 
-	private String id;
-
 	private String organization;
 
 	private String postalCode;
@@ -34,8 +30,6 @@ public class Contact {
 	private String address;
 
 	private String email;
-
-	private String dateCreated;
 
 	private String userReference;
 
@@ -71,13 +65,7 @@ public class Contact {
 		this.fax = fax;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
+	
 
 	public String getPhone2() {
 		return phone2;
@@ -119,13 +107,7 @@ public class Contact {
 		this.country = country;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 
 	public String getOrganization() {
 		return organization;
@@ -159,13 +141,7 @@ public class Contact {
 		this.email = email;
 	}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
 	public String getUserReference() {
 		return userReference;
@@ -210,13 +186,11 @@ public class Contact {
 	@Override
 	public String toString() {
 		return "ClassPojo [lastName = " + lastName + ", phone = " + phone
-				+ ", fax = " + fax + ", lastUpdated = " + lastUpdated
-				+ ", phone2 = " + phone2 + ", photo = " + photo
+				+ ", fax = " + fax + 
+				", phone2 = " + phone2 + ", photo = " + photo
 				+ ", customerReference = " + customerReference + ", city = "
-				+ city + ", country = " + country + ", id = " + id
-				+ ", organization = " + organization + ", postalCode = "
-				+ postalCode + ", address = " + address + ", email = " + email
-				+ ", dateCreated = " + dateCreated + ", userReference = "
+				+ city + ", country = " + country + ", organization = " + organization + ", postalCode = "
+				+ postalCode + ", address = " + address + ", email = " + email + ", userReference = "
 				+ userReference + ", fonction = " + fonction + ", firstName = "
 				+ firstName + ", comment = " + comment + ", mobile = " + mobile
 				+ "]";

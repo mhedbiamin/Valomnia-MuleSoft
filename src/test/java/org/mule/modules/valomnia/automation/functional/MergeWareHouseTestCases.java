@@ -6,8 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -61,7 +59,33 @@ public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector>
         else
             assertEquals(getConnector().mergeWareHouse(obj), expected2);
     }
+    
+    @Test
+    public void missingReferenceTest() {
+        java.lang.String expected = "Reference missing";
+        
+        WareHouse obj = new WareHouse();   
+        obj.setDescription("Test WareHouse ");
+        obj.setName("test name");
 
+        String apiResponse=getConnector().mergeWareHouse(obj);
+            assertTrue(apiResponse.contains(expected ));
+    }
+
+    @Test
+    public void verifyWareHouseSaved() {
+    	
+    	List<WareHouse> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findWareHouses();
+        
+        for (WareHouse  wareHouse:list)
+        { if ( wareHouse.getReference().equals("ref test WareHouse"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 
 
 

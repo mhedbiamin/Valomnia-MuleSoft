@@ -15,13 +15,11 @@ public class ItemTest {
 	public void testItemsAreEqual() {
 		
 		Item item = new Item ();
-		item.setId(3);
 		item.setReference("test reference");
 		item.setCategoryReference("drinks");
 		item.setName("item test");
 		
 		Item item1 = new Item ();
-		item1.setId(3);
 		item1.setReference("test reference");
 		item1.setCategoryReference("drinks");
 		item1.setName("item test");
@@ -35,16 +33,14 @@ public class ItemTest {
 	public void testItemsAreNotEqual() {
 		
 		Item item = new Item ();
-		item.setId(1);
 		item.setReference("test reference");
 		item.setCategoryReference("drinks");
 		item.setName("item test");
 		
 		Item item1 = new Item ();
-		item1.setId(2);
-		item1.setReference("test reference");
+		item1.setReference("test reference1");
 		item1.setCategoryReference("drinks");
-		item1.setName("item test");
+		item1.setName("item test1");
 		
 		
 		assertFalse(item.equals(item1));

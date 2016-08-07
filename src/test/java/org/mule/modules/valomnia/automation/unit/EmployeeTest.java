@@ -16,14 +16,12 @@ public class EmployeeTest {
 	public void testCEmployeesAreEqual() {
 		
 		Employee  employee = new Employee();
-		employee.setId("3");
 		employee.setReference("test reference");
 		employee.setFirstName("test first Name");
 		employee.setLastName("test Last Name");
 		employee.setMobile("987343");
 		
 		Employee  employee1 = new Employee();
-		employee1.setId("3");
 		employee1.setReference("test reference");
 		employee1.setFirstName("test first Name");
 		employee1.setLastName("test Last Name");
@@ -36,7 +34,6 @@ public class EmployeeTest {
 	@Test
 	public void testemployeesAreNotEqual() {
 		Employee  employee = new Employee();
-		employee.setId("3");
 		employee.setReference("test reference");
 		
 		employee.setFirstName("test first Name");
@@ -45,7 +42,7 @@ public class EmployeeTest {
 		
 		
 		Employee  employee1 = new Employee();
-		employee1.setId("8");
+	
 		employee1.setReference("test reference");
 		
 		employee1.setFirstName("test first Name");

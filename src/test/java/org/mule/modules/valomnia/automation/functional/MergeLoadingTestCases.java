@@ -5,12 +5,7 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-
-
 import java.util.List;
-
-
-
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.Loading;
@@ -61,6 +56,40 @@ public class MergeLoadingTestCases extends AbstractTestCase<ValomniaConnector> {
         else
             assertEquals(getConnector().mergeLoading(obj), expected2);
     }
+
+    @Test
+	 public void  missingReferenceTest() {
+	        java.lang.String expected = "Reference missing";
+	        
+	       Loading obj = new Loading();
+
+	    
+	        obj.setType("1");
+	        obj.setWarehouseType("1");
+	        obj.setWarehouseReference("ref test WareHouse");
+	        
+	        String apiResponse=getConnector().mergeLoading(obj);
+	        assertTrue(apiResponse.contains(expected ));
+
+	        
+
+	       
+	    }
+    @Test
+    public void verifyLoadingSaved() {
+    	
+    	List<Loading> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findLoadings();
+        
+        for (Loading  loading:list)
+        { if ( loading.getReference().equals("ref test Loading"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
+
 
 
 

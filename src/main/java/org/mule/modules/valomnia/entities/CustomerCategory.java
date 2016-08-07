@@ -7,8 +7,7 @@
 package org.mule.modules.valomnia.entities;
 
 public class CustomerCategory {
-	private String id;
-
+	
 	private String organization;
 
 	private String description;
@@ -17,21 +16,9 @@ public class CustomerCategory {
 
 	private String isRoot;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
 	private String parentReference;
 
 	private String reference;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getOrganization() {
 		return organization;
@@ -65,22 +52,6 @@ public class CustomerCategory {
 		this.isRoot = isRoot;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getParentReference() {
 		return parentReference;
 	}
@@ -99,10 +70,9 @@ public class CustomerCategory {
 
 	@Override
 	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
+		return "ClassPojo [ organization = " + organization
 				+ ", description = " + description + ", name = " + name
-				+ ", isRoot = " + isRoot + ", lastUpdated = " + lastUpdated
-				+ ", dateCreated = " + dateCreated + ", parentReference = "
+				+ ", isRoot = " + isRoot + ", lastUpdated = " + ", parentReference = "
 				+ parentReference + ", reference = " + reference + "]";
 	}
 }

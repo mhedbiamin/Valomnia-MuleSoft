@@ -7,27 +7,15 @@
 package org.mule.modules.valomnia.entities;
 
 public class Attribute {
-	private String id;
-
+	
 	private String organization;
 
 	private String name;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
+	
 	private String type;
 
 	private String reference;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getOrganization() {
 		return organization;
@@ -45,21 +33,8 @@ public class Attribute {
 		this.name = name;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
+	
 
 	public String getType() {
 		return type;
@@ -79,9 +54,9 @@ public class Attribute {
 
 	@Override
 	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", name = " + name + ", lastUpdated = " + lastUpdated
-				+ ", dateCreated = " + dateCreated + ", type = " + type
+		return "ClassPojo [  organization = " + organization
+				+ ", name = " + name + 
+				 ", type = " + type
 				+ ", reference = " + reference + "]";
 	}
 }

@@ -51,7 +51,7 @@ public class MergeContactTestCases extends AbstractTestCase<ValomniaConnector> {
         
         obj.setCustomerReference("ref test Customer");
         obj.setFirstName("test first name");
-        obj.setLastName("test last name");;
+        obj.setLastName("test last name");
        
 
         
@@ -61,6 +61,26 @@ public class MergeContactTestCases extends AbstractTestCase<ValomniaConnector> {
         else
             assertEquals(getConnector().mergeContact(obj), expected2);
     }
+    
+    
+    @Test
+    public void missingCustomerReference() {
+        java.lang.String expected = "customerReference missing";
+        
+       Contact obj = new Contact();
+
+       
+        
+       
+        obj.setFirstName("test first name");
+        obj.setLastName("test last name");
+       
+
+        
+
+            assertTrue(getConnector().mergeContact(obj).contains(expected));
+    }
+        
     @Test
     public void verifyContactSaved() {
     	

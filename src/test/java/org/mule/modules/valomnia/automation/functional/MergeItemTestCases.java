@@ -61,6 +61,26 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
     }
     
     
+    
+    
+    @Test
+    public void itemReferenceMissingTest() {
+        java.lang.String expected = "Reference missing";
+        
+        Item obj = new Item();   
+        obj.setName("test Item");
+       
+        obj.setCategoryReference("ref test ItemCategory");
+
+        obj.setDescription("TEST DESCRIPTION");
+
+        String apiResponse=getConnector().mergeItem(obj);
+            assertTrue(apiResponse.contains(expected ));
+    }
+    
+    
+    
+    
     @Test
     public void verifyItemSaved() {
     	

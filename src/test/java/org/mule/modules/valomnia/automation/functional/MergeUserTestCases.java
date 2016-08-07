@@ -6,7 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -60,6 +59,20 @@ public class MergeUserTestCases extends AbstractTestCase<ValomniaConnector> {
             assertEquals(getConnector().mergeUser(obj), expected2);
     }
 
+    @Test
+    public void verifyUserSaved() {
+    	
+    	List<User> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findUsers();
+        
+        for (User user:list)
+        { if ( user.getEmployeeReference().equals("ref test Employee"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 
 
 }

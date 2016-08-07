@@ -6,7 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -62,5 +61,42 @@ public class MergeOrderTestCases extends AbstractTestCase<ValomniaConnector> {
         else
             assertEquals(getConnector().mergeOrder(obj), expected2);
     }
+    
+    @Test
+    public void missingReferenceTest() {
+        java.lang.String expected = "Reference missing";
+        
+        Order obj = new Order();  
+        obj.setTotalProducts("10");
+        obj.setCustomerReference("ref test Customer");
+        obj.setUserReference("ref test Employee");
+        obj.setTotalHT("100");
+        
+       obj.setStatus("PAID");
+       
+
+        
+
+       
+            assertTrue(getConnector().mergeOrder(obj).contains(expected));
+      
+    }
+    
+    @Test
+    public void verifyOrderSaved() {
+    	
+    	List<Order> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findOrders();
+        
+        for (Order  order:list)
+        { if ( order.getReference().equals("ref test Order"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
+
+
 
 }

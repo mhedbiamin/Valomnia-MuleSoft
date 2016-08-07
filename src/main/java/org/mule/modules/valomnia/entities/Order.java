@@ -17,8 +17,6 @@ public class Order {
 
 	private String status;
 
-	private String lastUpdated;
-
 	private String totalProducts;
 
 	private String customerReference;
@@ -29,7 +27,6 @@ public class Order {
 
 	private String discount;
 
-	private String id;
 
 	private String delivaryAddress;
 
@@ -40,8 +37,6 @@ public class Order {
 	private String operationType;
 
 	private String employeeReference;
-
-	private String dateCreated;
 
 	private String userReference;
 
@@ -87,14 +82,7 @@ public class Order {
 		this.status = status;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
+	
 	public String getTotalProducts() {
 		return totalProducts;
 	}
@@ -135,14 +123,7 @@ public class Order {
 		this.discount = discount;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	
 	public String getDelivaryAddress() {
 		return delivaryAddress;
 	}
@@ -183,13 +164,7 @@ public class Order {
 		this.employeeReference = employeeReference;
 	}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
 	public String getUserReference() {
 		return userReference;
@@ -244,16 +219,15 @@ public class Order {
 	public String toString() {
 		return "ClassPojo [delivaryPostalCode = " + delivaryPostalCode
 				+ ", delivaryCity = " + delivaryCity + ", paymentDate = "
-				+ paymentDate + ", status = " + status + ", lastUpdated = "
-				+ lastUpdated + ", totalProducts = " + totalProducts
+				+ paymentDate + ", status = " + status + ", totalProducts = " + totalProducts
 				+ ", customerReference = " + customerReference
 				+ ", totalDiscounted = " + totalDiscounted + ", reference = "
-				+ reference + ", discount = " + discount + ", id = " + id
+				+ reference + ", discount = " + discount 
 				+ ", delivaryAddress = " + delivaryAddress
 				+ ", organization = " + organization + ", deliveryComment = "
 				+ deliveryComment + ", operationType = " + operationType
 				+ ", employeeReference = " + employeeReference
-				+ ", dateCreated = " + dateCreated + ", userReference = "
+				+ ", userReference = "
 				+ userReference + ", totalHT = " + totalHT
 				+ ", deliveryDate = " + deliveryDate
 				+ ", customerPaymentTypeReference = "
@@ -269,9 +243,8 @@ public class Order {
 				* result
 				+ ((customerReference == null) ? 0 : customerReference
 						.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
-				+ ((organization == null) ? 0 : organization.hashCode());
+				+ ((delivaryCity == null) ? 0 : delivaryCity.hashCode());
 		result = prime * result
 				+ ((reference == null) ? 0 : reference.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
@@ -291,18 +264,12 @@ public class Order {
 		}
 		Order other = (Order) obj;
 
-		if (id == null) {
-			if (other.id != null) {
+		
+		if (delivaryCity == null) {
+			if (other.delivaryCity != null) {
 				return false;
 			}
-		} else if (!id.equals(other.id)) {
-			return false;
-		}
-		if (organization == null) {
-			if (other.organization != null) {
-				return false;
-			}
-		} else if (!organization.equals(other.organization)) {
+		} else if (!delivaryCity.equals(other.delivaryCity)) {
 			return false;
 		}
 		if (reference == null) {

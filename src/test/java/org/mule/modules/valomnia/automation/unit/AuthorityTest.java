@@ -22,15 +22,13 @@ public class AuthorityTest {
 		
 		authority.setName("authority test");
 		authority.setOrganization("test Organization");
-		authority.setDateCreated("17/02/2016");
-		authority.setLastUpdated("22/02/2016");
+		
 		
 		Authority  authority1 = new Authority();
 	
 		authority1.setName("authority test");
 		authority1.setOrganization("test Organization");
-		authority1.setDateCreated("17/02/2016");
-		authority1.setLastUpdated("22/02/2016");
+		
 		assertEquals(authority,authority1);
 		
 	}
@@ -41,15 +39,13 @@ public class AuthorityTest {
 	
 		authority.setName("authority test");
 		authority.setOrganization("test Organization");
-		authority.setDateCreated("17/02/2016");
-		authority.setLastUpdated("22/02/2016");
+		
 		
 		Authority  authority1 = new Authority();
 		
 		authority1.setName("authority test");
 		authority1.setOrganization("test Organization 1");
-		authority1.setDateCreated("19/02/2016");
-		authority1.setLastUpdated("28/02/2016");
+		
 		
 		
 		assertFalse(authority.equals(authority1));

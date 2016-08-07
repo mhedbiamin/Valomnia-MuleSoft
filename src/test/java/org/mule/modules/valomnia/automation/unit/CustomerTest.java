@@ -16,14 +16,14 @@ public class CustomerTest {
 		public void testCustomersAreEqual() {
 			
 			Customer  customer = new Customer();
-			customer.setId(3);
+			
 			customer.setReference("test reference");
 			customer.setEmail("email@test.com");
 			customer.setName("customer test");
 			customer.setAddress(" test adress");
 			
 			Customer  customer1 = new Customer();
-			customer1.setId(3);
+			
 			customer1.setReference("test reference");
 			customer1.setEmail("email@test.com");
 			customer1.setName("customer test");
@@ -36,7 +36,7 @@ public class CustomerTest {
 		@Test
 		public void testCustomersAreNotEqual() {
 			Customer  customer = new Customer();
-			customer.setId(3);
+			
 			customer.setReference("test reference");
 			
 			customer.setEmail("email@test.com");
@@ -45,7 +45,7 @@ public class CustomerTest {
 			
 			
 			Customer  customer1 = new Customer();
-			customer1.setId(3);
+			
 			customer1.setReference("test reference");
 			customer1.setEmail("email1@test.com");
 			customer1.setName("customer test");

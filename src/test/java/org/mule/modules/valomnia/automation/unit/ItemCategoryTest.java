@@ -17,13 +17,13 @@ public class ItemCategoryTest {
 	public void testItemCategoryAreEqual() {
 		
 		ItemCategory  itemCategory = new ItemCategory();
-		itemCategory.setId("3");
+		
 		itemCategory.setReference("test reference");
 		itemCategory.setDescription("test ItemCategory");
 		itemCategory.setName("test name");
 		
 		ItemCategory  itemCategory1 = new ItemCategory();
-		itemCategory1.setId("3");
+		
 		itemCategory1.setReference("test reference");
 		itemCategory1.setDescription("test ItemCategory");
 		itemCategory1.setName("test name");
@@ -36,13 +36,12 @@ public class ItemCategoryTest {
 	@Test
 	public void testItemCategoryAreNotEqual() {
 		ItemCategory  itemCategory = new ItemCategory();
-		itemCategory.setId("3");
+		
 		itemCategory.setReference("test reference");
 		itemCategory.setDescription("test ItemCategory");
 		itemCategory.setName("test name");
 		
 		ItemCategory  itemCategory1 = new ItemCategory();
-		itemCategory1.setId("6");
 		itemCategory1.setReference("test reference");
 		itemCategory1.setDescription("test ItemCategory");
 		itemCategory1.setName("test name 1");

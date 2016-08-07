@@ -6,7 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -58,5 +57,47 @@ public class MergeItemUnitTestCases extends AbstractTestCase<ValomniaConnector> 
         else
             assertEquals(getConnector().mergeItemUnit(obj), expected1);
     }
+    
+    
+    @Test
+    public void itemReferenceMissingTest() {
+        java.lang.String expected = "itemReference required";
+        
+        ItemUnit obj = new ItemUnit();
+        obj.setUnitReference("ref test Unit");
+        obj.setQuantity("1");
+        
+  
+            assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+        
+    }
+    @Test
+    public void itemUnitMissingTest() {
+        java.lang.String expected = "unitReference required";
+        
+        ItemUnit obj = new ItemUnit();
+        obj.setItemReference("ref test Item");
+        obj.setQuantity("1");
+        
+  
+            assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+        
+    }
+    @Test
+    public void verifyItemUnitSaved() {
+    	
+    	List<ItemUnit> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findItemUnits();
+        
+        for (ItemUnit  itemUnit:list)
+        { if (( itemUnit.getItemReference().equals("ref test Item"))&&(itemUnit.getUnitReference().equals("ref test Unit")))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
+
+   
 
 }

@@ -57,6 +57,22 @@ public class MergeCustomerCategoryTestCases extends AbstractTestCase<ValomniaCon
     
     
     @Test
+    public void missingReferenceTest() {
+        java.lang.String expected = "Reference missing";
+       
+        CustomerCategory obj = new CustomerCategory();
+
+       obj.setDescription("Test customer category");
+
+        obj.setName("test name");
+
+       
+       
+            assertTrue(getConnector().mergeCustomerCategory(obj).contains(expected));
+    }
+    
+    
+    @Test
     public void verifyCustomerCategorySaved() {
     	
     	List<CustomerCategory> list = null;

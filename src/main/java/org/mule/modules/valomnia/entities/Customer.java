@@ -21,8 +21,6 @@ public class Customer {
 
 	private String city;
 
-	private Integer id;
-
 	private String balance;
 
 	private String organization;
@@ -41,8 +39,6 @@ public class Customer {
 
 	private String website;
 
-	private String lastUpdated;
-
 	private String maxChequePeriod;
 
 	private String paymentTerm;
@@ -60,8 +56,6 @@ public class Customer {
 	private String email;
 
 	private String address;
-
-	private String dateCreated;
 
 	private String userReference;
 
@@ -121,13 +115,7 @@ public class Customer {
 		this.city = city;
 	}
 
-	public Integer sgetId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 
 	public String getBalance() {
 		return balance;
@@ -199,14 +187,6 @@ public class Customer {
 
 	public void setWebsite(String website) {
 		this.website = website;
-	}
-
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
 	}
 
 	public String getMaxChequePeriod() {
@@ -281,14 +261,6 @@ public class Customer {
 		this.address = address;
 	}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getUserReference() {
 		return userReference;
 	}
@@ -334,10 +306,7 @@ public class Customer {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result
-				+ ((lastUpdated == null) ? 0 : lastUpdated.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());	
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((reference == null) ? 0 : reference.hashCode());
@@ -362,11 +331,6 @@ public class Customer {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
 			return false;
 		
 		if (name == null) {

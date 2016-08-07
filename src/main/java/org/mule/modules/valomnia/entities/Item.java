@@ -8,11 +8,6 @@ package org.mule.modules.valomnia.entities;
 
 public class Item {
 
-	
-
-	
-
-	private Integer id;
 	private String reference;
 	private String organization;
 	private String name;
@@ -25,26 +20,9 @@ public class Item {
 	private String image1;
 	private String image2;
 	private String image3;
-	private String dateCreated;
-	private String lastUpdated;
+	
 
-	/**
-	 * 
-	 * @return The id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * 
-	 * @param id
-	 *            The id
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	/**
 	 * 
 	 * @return The reference
@@ -215,40 +193,9 @@ public class Item {
 		this.image3 = image3;
 	}
 
-	/**
-	 * 
-	 * @return The dateCreated
-	 */
-	public String getDateCreated() {
-		return dateCreated;
-	}
+	
 
-	/**
-	 * 
-	 * @param dateCreated
-	 *            The dateCreated
-	 */
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	/**
-	 * 
-	 * @return The lastUpdated
-	 */
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	/**
-	 * 
-	 * @param lastUpdated
-	 *            The lastUpdated
-	 */
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
+	
 
 	public  String isDisplayOrder() {
 		return displayOrder;
@@ -279,13 +226,7 @@ public class Item {
 		} else if (!categoryReference.equals(other.categoryReference)){
 			return false;
 			}
-		if (id == null) {
-			if (other.id != null){
-				return false;
-			}
-		} else if (!id.equals(other.id)){
-			return false;
-			}
+		
 		if (name == null) {
 			if (other.name != null){
 				return false;
@@ -315,7 +256,6 @@ public class Item {
 				* result
 				+ ((categoryReference == null) ? 0 : categoryReference
 						.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((reference == null) ? 0 : reference.hashCode());

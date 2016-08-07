@@ -7,15 +7,11 @@
 package org.mule.modules.valomnia.entities;
 
 public class Employee {
-	private String id;
+	
 
 	private String lastName;
 
 	private String organization;
-
-	private String lastUpdated;
-
-	private String dateCreated;
 
 	private String managerReference;
 
@@ -29,13 +25,7 @@ public class Employee {
 
 	private String mobile;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 
 	public String getLastName() {
 		return lastName;
@@ -53,21 +43,7 @@ public class Employee {
 		this.organization = organization;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
 	public String getManagerReference() {
 		return managerReference;
@@ -119,9 +95,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "ClassPojo [id = " + id + ", lastName = " + lastName
+		return "ClassPojo [ lastName = " + lastName
 				+ ", organization = " + organization + ", lastUpdated = "
-				+ lastUpdated + ", dateCreated = " + dateCreated
 				+ ", managerReference = " + managerReference + ", avatar = "
 				+ avatar + ", firstName = " + firstName
 				+ ", employeeGroupReference = " + employeeGroupReference
@@ -134,7 +109,6 @@ public class Employee {
 		int result = 1;
 		result = prime * result
 				+ ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((mobile == null) ? 0 : mobile.hashCode());
@@ -157,11 +131,7 @@ public class Employee {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
+		
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;

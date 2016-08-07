@@ -44,7 +44,7 @@ public class MergeAuthorityTestCases extends AbstractTestCase<ValomniaConnector>
                     
                 exist = true;
         }
-        
+      
         obj.setName("test Authority");
        
 

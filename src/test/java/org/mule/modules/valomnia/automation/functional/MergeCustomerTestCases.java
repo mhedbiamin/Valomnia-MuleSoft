@@ -5,9 +5,6 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -65,6 +62,47 @@ public class MergeCustomerTestCases extends AbstractTestCase<ValomniaConnector> 
 
 
     }
-}
+    
+    @Test
+ 	 public void  missingReferenceTest() {
+ 	        java.lang.String expected = "Reference missing";
+ 	        
+ 	       Customer obj = new Customer();
+
+ 	    
+ 	        obj.setName("test  name");
+ 	        obj.setCountry("TN");
+ 	        obj.setCity("Sousse");
+ 	        
+ 	        String apiResponse=getConnector().mergeCustomer(obj);
+ 	        assertTrue(apiResponse.contains(expected ));
+
+ 	        
+
+ 	       
+ 	    }
+    
+    @Test
+    public void verifyCustomerSaved() {
+    	
+    	List<Customer> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findCustomers();
+        
+        for (Customer  customer:list)
+        { if ( customer.getReference().equals("ref test Customer"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
+
+   
+
+
+
+    }
+    
+
 
 

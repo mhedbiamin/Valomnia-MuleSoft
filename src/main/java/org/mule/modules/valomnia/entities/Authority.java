@@ -11,9 +11,7 @@ public class Authority {
 
 	private String name;
 
-	private String lastUpdated;
-
-	private String dateCreated;
+	
 
 	public String getOrganization() {
 		return organization;
@@ -31,37 +29,21 @@ public class Authority {
 		this.name = name;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
+	
 
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "ClassPojo [organization = " + organization + ", name = " + name
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + "]";
+				+  "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((dateCreated == null) ? 0 : dateCreated.hashCode());
-		result = prime * result
-				+ ((lastUpdated == null) ? 0 : lastUpdated.hashCode());
+		
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((organization == null) ? 0 : organization.hashCode());
@@ -77,16 +59,7 @@ public class Authority {
 		if (getClass() != obj.getClass())
 			return false;
 		Authority other = (Authority) obj;
-		if (dateCreated == null) {
-			if (other.dateCreated != null)
-				return false;
-		} else if (!dateCreated.equals(other.dateCreated))
-			return false;
-		if (lastUpdated == null) {
-			if (other.lastUpdated != null)
-				return false;
-		} else if (!lastUpdated.equals(other.lastUpdated))
-			return false;
+		
 		if (name == null) {
 			if (other.name != null)
 				return false;
