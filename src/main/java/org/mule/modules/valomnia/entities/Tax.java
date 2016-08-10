@@ -13,13 +13,9 @@ public class Tax {
 
 	private String itemReference;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
 	private String taxValue;
 
-	private String taxListName;
+	private String taxListReference;
 
 	public String getId() {
 		return id;
@@ -45,21 +41,7 @@ public class Tax {
 		this.itemReference = itemReference;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
 	public String getTaxValue() {
 		return taxValue;
@@ -69,20 +51,19 @@ public class Tax {
 		this.taxValue = taxValue;
 	}
 
-	public String getTaxListName() {
-		return taxListName;
+	public String getTaxListReference() {
+		return taxListReference;
 	}
 
-	public void setTaxListName(String taxListName) {
-		this.taxListName = taxListName;
+	public void setTaxListReference(String taxListReference) {
+		this.taxListReference = taxListReference;
 	}
 
 	@Override
 	public String toString() {
 		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", itemReference = " + itemReference + ", lastUpdated = "
-				+ lastUpdated + ", dateCreated = " + dateCreated
-				+ ", taxValue = " + taxValue + ", taxListName = " + taxListName
+				+ ", itemReference = " + itemReference 
+				+ ", taxValue = " + taxValue + ", taxListReference = " + taxListReference
 				+ "]";
 	}
 }

@@ -43,7 +43,7 @@ public class MergeTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
 
         for (TaxList taxList : list)
         {
-            if (taxList.getName().equals("test TaxList")&&taxList.getReference().equals("ref test TaxList"))
+            if (taxList.getName().equals("test TaxList")&&taxList.getReference().equals("test TaxList Reference"))
             
                     
                 exist = true;
@@ -51,7 +51,7 @@ public class MergeTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
         
         obj.setName("test TaxList");
         obj.setTaxType("Percentage %");
-        obj.setReference("ref test TaxList");
+        obj.setReference("test TaxList Reference");
         
        
 

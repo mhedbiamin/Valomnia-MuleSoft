@@ -51,11 +51,13 @@ import org.mule.modules.valomnia.automation.functional.MergeContactTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerCategoryTaxListTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerGroupAssignTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerGroupTestCases;
+import org.mule.modules.valomnia.automation.functional.MergeCustomerTaxListTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeCustomerTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeItemCategoryTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeItemGroupAssignTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeItemGroupTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeItemTestCases;
+import org.mule.modules.valomnia.automation.functional.MergeTaxTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeUnitTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeUserTestCases;
 import org.mule.modules.valomnia.automation.functional.MergeTaxListTestCases;
@@ -89,6 +91,7 @@ import org.mule.modules.valomnia.automation.functional.MergeItemAttributeTestCas
 @RunWith(Suite.class)
 @SuiteClasses({
 	EntitiesTestCases.class,
+	
 	FindAttributesValueTestCases.class, FindItemsTestCases.class,
 		FindItemsGroupTestCases.class, FindAttributsTestCases.class,
 		FindUsersTestCases.class, FindAuthorityTestCases.class,
@@ -97,7 +100,8 @@ import org.mule.modules.valomnia.automation.functional.MergeItemAttributeTestCas
 		FindCustomerCategroryPriceListTestCases.class,
 		FindCustomerCategroryTaxListTestCases.class,
 		FindCustomerPaymentTypeTestCases.class,
-		FindCustomerPriceListTestCases.class,
+		FindCustomerPriceListTestCases.class,MergeCustomerTaxListTestCases.class,
+		MergeTaxTestCases.class,
 		FindCustomersGroupTestCases.class, FindCustomersTestCases.class,
 		FindItemsCategoryTestCases.class, FindUnitsTestCases.class,
 		FindLoadingDetailsTestCases.class, FindLoadingsTestCases.class,

@@ -42,12 +42,12 @@ public class MergeTaxTestCases extends AbstractTestCase<ValomniaConnector> {
 
         for (Tax tax : list)
         {
-            if (tax.getItemReference().equals("ref test Item")&tax.getTaxListName().equals("test TaxList"))
+            if ((tax.getItemReference()!=null) &&(tax.getItemReference().equals("ref test Item"))&(tax.getTaxListReference().equals("test TaxList Reference")))
                 exist = true;
         }
         
         obj.setItemReference("ref test Item");
-        obj.setTaxListName("test TaxList");
+        obj.setTaxListReference("test TaxList Reference");
         obj.setTaxValue("16");;
        
 

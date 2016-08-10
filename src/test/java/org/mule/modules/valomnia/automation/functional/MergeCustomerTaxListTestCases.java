@@ -39,12 +39,12 @@ public class MergeCustomerTaxListTestCases extends AbstractTestCase<ValomniaConn
         for (CustomerTaxList customerTaxList : list)
         {      if (customerTaxList.getCustomerReference()!=null)
             if ( customerTaxList.getCustomerReference()
-                    .equals("ref test Customer")& customerTaxList.getTaxListName().equals("test TaxList"))
+                    .equals("ref test Customer")& customerTaxList.getTaxListReference().equals("test TaxList Reference"))
                 exist = true;
         }
         obj.setCustomerReference("ref test Customer");
         
-        obj.setTaxListName("test TaxList");
+        obj.setTaxListReference("test TaxList Reference");
         
        
 
@@ -64,8 +64,8 @@ public class MergeCustomerTaxListTestCases extends AbstractTestCase<ValomniaConn
             list = getConnector().findCustomersTaxList();
         
         for (CustomerTaxList customerTaxList:list)
-        { if ( customerTaxList.getCustomerReference().equals("ref test Customer")&&  
-        		customerTaxList.getTaxListName().equals("test TaxList"))
+        { if ((customerTaxList.getCustomerReference()!=null )&&(customerTaxList.getCustomerReference().equals("ref test Customer"))&&  
+        		(customerTaxList.getTaxListReference().equals("test TaxList Reference")))
             exist=true;
         }
     	assertTrue(exist);

@@ -11,13 +11,9 @@ public class CustomerTaxList {
 
 	private String organization;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
 	private String customerReference;
 
-	private String taxListName;
+	private String taxListReference;
 
 	public String getId() {
 		return id;
@@ -35,22 +31,7 @@ public class CustomerTaxList {
 		this.organization = organization;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
+	
 	public String getCustomerReference() {
 		return customerReference;
 	}
@@ -59,19 +40,18 @@ public class CustomerTaxList {
 		this.customerReference = customerReference;
 	}
 
-	public String getTaxListName() {
-		return taxListName;
+	public String getTaxListReference() {
+		return taxListReference;
 	}
 
-	public void setTaxListName(String taxListName) {
-		this.taxListName = taxListName;
+	public void setTaxListReference(String taxListReference) {
+		this.taxListReference = taxListReference;
 	}
 
 	@Override
 	public String toString() {
 		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + ", customerReference = " + customerReference
-				+ ", taxListName = " + taxListName + "]";
+				 + ", customerReference = " + customerReference
+				+ ", taxListReference = " + taxListReference + "]";
 	}
 }
