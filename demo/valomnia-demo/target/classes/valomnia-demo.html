@@ -92,7 +92,7 @@
 			operationTwoForm.submit(function() {
 				$.ajax({
 					type: 'GET',
-					url: 'http://localhost:8081/Valonmia/SaveOrUpdateItem',
+					url: 'http://localhost:8081/Valomnia/SaveOrUpdateItem',
 					data: operationTwoForm.serialize(),
 					success: function(data) {
 						alert("Item  in java class  " + JSON.parse(JSON.stringify(data)));

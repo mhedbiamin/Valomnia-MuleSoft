@@ -2,5 +2,5 @@
 <mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.7.3.ee" schemaVersion="5.3.0.0">
     <name>valomnia-demo</name>
     <description></description>
-    <muleExtension name="Valomnia" qualifier="org.mule.tooling.ui.contribution.valomnia.3.5.0"/>
+    <muleExtension name="Valomnia" qualifier="org.mule.tooling.ui.contribution.valomnia.3.7.3"/>
 </mule-project>

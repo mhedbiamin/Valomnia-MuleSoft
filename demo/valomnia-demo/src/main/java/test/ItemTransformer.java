@@ -6,6 +6,7 @@ package test;
 
 
 import org.mule.api.transformer.TransformerException;
+import org.mule.modules.valomnia.entities.Item;
 import org.mule.transformer.AbstractMessageTransformer;
 import org.mule.api.MuleMessage;
 
@@ -17,10 +18,12 @@ public class ItemTransformer extends AbstractMessageTransformer
     @Override
     public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
         Item item = new Item();
-        item.setName("ItemTest");
-        item.setReference("It002");
+        item.setReference("It004");
+        item.setName("Item Test");
+        
         item.setDescription("Item for test");
 
         return item;
-    }
+    	
+}
 }

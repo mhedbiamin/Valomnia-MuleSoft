@@ -1,47 +1,28 @@
 /**
  * (c) 2003-2016 MuleSoft, Inc. The software in this package is published under the terms of the Commercial Free Software license V.1, a copy of which has been included with this distribution in the LICENSE.md file.
  */
-package test;
 /**
  *
  */
-
+package org.mule.modules.valomnia.entities;
 
 public class Item {
 
-	private Integer id;
 	private String reference;
 	private String organization;
 	private String name;
-	private Object parentReference;
+	private String parentReference;
 	private String categoryReference;
 	private String description;
-	private Boolean displayOrder;
+	private String displayOrder;
 
-	private Boolean isActive;
+	private String isActive;
 	private String image1;
-	private Object image2;
-	private Object image3;
-	private String dateCreated;
-	private String lastUpdated;
+	private String image2;
+	private String image3;
+	
 
-	/**
-	 * 
-	 * @return The id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * 
-	 * @param id
-	 *            The id
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	/**
 	 * 
 	 * @return The reference
@@ -106,7 +87,7 @@ public class Item {
 	 * @param parentReference
 	 *            The parentReference
 	 */
-	public void setParentReference(Object parentReference) {
+	public void setParentReference(String parentReference) {
 		this.parentReference = parentReference;
 	}
 
@@ -148,7 +129,7 @@ public class Item {
 	 * 
 	 * @return The isActive
 	 */
-	public Boolean getIsActive() {
+	public String  getIsActive() {
 		return isActive;
 	}
 
@@ -157,7 +138,7 @@ public class Item {
 	 * @param isActive
 	 *            The isActive
 	 */
-	public void setIsActive(Boolean isActive) {
+	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
 
@@ -191,7 +172,7 @@ public class Item {
 	 * @param image2
 	 *            The image2
 	 */
-	public void setImage2(Object image2) {
+	public void setImage2(String image2) {
 		this.image2 = image2;
 	}
 
@@ -208,51 +189,81 @@ public class Item {
 	 * @param image3
 	 *            The image3
 	 */
-	public void setImage3(Object image3) {
+	public void setImage3(String image3) {
 		this.image3 = image3;
 	}
 
-	/**
-	 * 
-	 * @return The dateCreated
-	 */
-	public String getDateCreated() {
-		return dateCreated;
-	}
+	
 
-	/**
-	 * 
-	 * @param dateCreated
-	 *            The dateCreated
-	 */
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+	
 
-	/**
-	 * 
-	 * @return The lastUpdated
-	 */
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	/**
-	 * 
-	 * @param lastUpdated
-	 *            The lastUpdated
-	 */
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public boolean isDisplayOrder() {
+	public  String isDisplayOrder() {
 		return displayOrder;
 	}
 
-	public void setDisplayOrder(boolean displayOrder) {
+	public void setDisplayOrder(String displayOrder) {
 		this.displayOrder = displayOrder;
 	}
 
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj == null){
+			return false;
+		}
+		if (getClass() != obj.getClass()){
+			return false;
+			}
+		Item other = (Item) obj;
+		if (categoryReference == null) {
+			if (other.categoryReference != null)
+			{
+				return false;
+			}
+		} else if (!categoryReference.equals(other.categoryReference)){
+			return false;
+			}
+		
+		if (name == null) {
+			if (other.name != null){
+				return false;
+				}
+		} else if (!name.equals(other.name)){
+			return false;
+			}
+		if (reference == null) {
+			if (other.reference != null){
+				return false;
+				}
+		} else if (!reference.equals(other.reference)){
+			return false;
+			}
+		return true;
+	}
+
+
+
+
+
+@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((categoryReference == null) ? 0 : categoryReference
+						.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((reference == null) ? 0 : reference.hashCode());
+		return result;
+	}
+
+
+
+
 }
+
