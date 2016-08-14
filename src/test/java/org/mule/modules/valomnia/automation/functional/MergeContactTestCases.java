@@ -68,15 +68,32 @@ public class MergeContactTestCases extends AbstractTestCase<ValomniaConnector> {
         java.lang.String expected = "customerReference missing";
         
        Contact obj = new Contact();
-
-       
-        
-       
         obj.setFirstName("test first name");
+        obj.setLastName("test last name");
+     assertTrue(getConnector().mergeContact(obj).contains(expected));
+    }
+    @Test
+    public void missingFirstName() {
+        java.lang.String expected = "firstName missing: Failed to save the Contact ";
+        
+       Contact obj = new Contact();
+       obj.setCustomerReference("ref test Customer");
         obj.setLastName("test last name");
        
 
         
+
+            assertTrue(getConnector().mergeContact(obj).contains(expected));
+    }
+    
+    
+    @Test
+    public void missingLastName() {
+        java.lang.String expected = "lastName missing: Failed to save the Contact ";
+        
+       Contact obj = new Contact();
+       obj.setCustomerReference("ref test Customer");
+       obj.setFirstName("test first name");
 
             assertTrue(getConnector().mergeContact(obj).contains(expected));
     }

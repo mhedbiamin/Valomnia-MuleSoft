@@ -47,6 +47,7 @@ public class MergeItemUnitTestCases extends AbstractTestCase<ValomniaConnector> 
         obj.setItemReference("ref test Item");
         obj.setUnitReference("ref test Unit");
         obj.setQuantity("1");
+        obj.setSalesQty("7");
         
        
 
@@ -66,13 +67,14 @@ public class MergeItemUnitTestCases extends AbstractTestCase<ValomniaConnector> 
         ItemUnit obj = new ItemUnit();
         obj.setUnitReference("ref test Unit");
         obj.setQuantity("1");
+        obj.setSalesQty("7");
         
   
             assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
         
     }
     @Test
-    public void itemUnitMissingTest() {
+    public void UnitReferenceMissingTest() {
         java.lang.String expected = "unitReference required";
         
         ItemUnit obj = new ItemUnit();

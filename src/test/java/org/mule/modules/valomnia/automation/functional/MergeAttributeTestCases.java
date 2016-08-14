@@ -62,6 +62,33 @@ public class MergeAttributeTestCases extends AbstractTestCase<ValomniaConnector>
                 assertEquals(getConnector().mergeAttribute(obj), expected1);
         }
     
+    
+    @Test
+    public void misssingReference() {
+        java.lang.String expected = "Reference missing: Failed to save the Attribute";
+        
+        Attribute obj = new Attribute();
+       
+        obj.setName("test name  Attribute");
+        obj.setType("COLOR");   
+            assertTrue(getConnector().mergeAttribute(obj).contains(expected));
+        
+    }
+
+    @Test
+    public void typeAttributeTest() {
+        java.lang.String expected = "type can have only these values [ COLOR, STRING, NUMBER ]";
+        
+        Attribute obj = new Attribute();
+        obj.setReference("ref test Attribute 1");
+        obj.setName("test name  Attribute");
+        obj.setType("value");   
+            assertTrue(getConnector().mergeAttribute(obj).contains(expected));
+        
+    }
+   
+    
+ 
     @Test
     public void verifyAttributeSaved() {
     	

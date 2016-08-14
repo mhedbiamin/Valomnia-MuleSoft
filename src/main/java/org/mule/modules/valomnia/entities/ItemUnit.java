@@ -26,8 +26,18 @@ public class ItemUnit {
     private String barcode;
 
     private String quantity;
+    
+    private String salesQty;
 
-    public String getId () {
+    public String getSalesQty() {
+		return salesQty;
+	}
+
+	public void setSalesQty(String salesQty) {
+		this.salesQty = salesQty;
+	}
+
+	public String getId () {
         return id;
     }
 

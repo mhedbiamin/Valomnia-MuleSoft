@@ -4,11 +4,7 @@
 package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
-
-
-
 import java.util.List;
-
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.ItemCategory;
@@ -55,6 +51,21 @@ public class MergeItemCategoryTestCases extends AbstractTestCase<ValomniaConnect
             assertEquals(getConnector().mergeItemCategory(obj), expected2);
         else
             assertEquals(getConnector().mergeItemCategory(obj), expected1);
+    }
+    
+    @Test
+    public void verifyItemCategorySaved() {
+    	
+    	List<ItemCategory> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findItemsCategory();
+        
+        for (ItemCategory  itemCategory:list)
+        { if ( itemCategory.getReference().equals("ref test ItemCategory"))
+            exist=true;
+        }
+    	assertTrue(exist);
     }
 
 }

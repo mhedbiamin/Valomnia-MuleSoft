@@ -5,8 +5,6 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -60,6 +58,33 @@ public class MergeLoadingDetailsTestCases extends AbstractTestCase<ValomniaConne
             assertEquals(getConnector().mergeLoadingDetails(obj), expected1);
         else
             assertEquals(getConnector().mergeLoadingDetails(obj), expected2);
+    }
+    
+    @Test
+    public void itemReferenceMissingTest() {
+        java.lang.String expected = "itemReference missing: Failed to save the LoadingDetails";
+        LoadingDetails obj = new LoadingDetails();
+        obj.setLoadingReference("ref test Loading");
+        obj.setUnitReference("ref test Unit");
+        obj.setQuantity("10");
+  
+            assertTrue(getConnector().mergeLoadingDetails(obj).contains(expected));
+        
+    }
+    
+    @Test
+    public void verifyLoadingDetailsSaved() {
+    	
+    	List<LoadingDetails> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findLoadingDetails();
+        
+        for (LoadingDetails  loadingDetails:list)
+        { if( (loadingDetails.getLoadingReference().equals("ref test Loading"))&&( loadingDetails.getItemReference().equals("ref test Item"))&&(loadingDetails.getUnitReference().equals("ref test Unit")))
+            exist=true;
+        }
+    	assertTrue(exist);
     }
 
 }

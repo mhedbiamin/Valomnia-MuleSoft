@@ -6,9 +6,6 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
-
-
 import java.util.List;
 
 import org.junit.Test;
@@ -39,7 +36,7 @@ public class MergeOrderDetailTestCases extends AbstractTestCase<ValomniaConnecto
 
             e.printStackTrace();
        
-
+        }
         for (OrderDetail orderDetail : list)
             
             
@@ -67,7 +64,44 @@ public class MergeOrderDetailTestCases extends AbstractTestCase<ValomniaConnecto
         else
             assertEquals(getConnector().mergeOrderDetail(obj), expected2);
     }
+    @Test
+    public void verifyOrderDetailSaved() {
+    	
+    	List<OrderDetail> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findOrdersDetail();
+        
+        for (OrderDetail  orderDetail:list)
+        { if (( orderDetail.getOrderReference().equals("ref test Order"))&&(orderDetail.getItemReference().equals("ref test Item"))
+        		&&(orderDetail.getUnitReference().equals("ref test Unit"))&&(orderDetail.getFinalPrice().equals("90")))
+           
+        	exist=true;
+        }
+    	assertTrue(exist);
+    }
+    
+    
+    @Test
+    public void misssingOrderReference() {
+        java.lang.String expected = "orderReference missing: Failed to save the OrderDetail";
+        
+        OrderDetail obj = new OrderDetail();
+        obj.setItemReference("ref test Item");
+        obj.setUnitReference("ref test Unit");
+        obj.setFinalPrice("90");
+        obj.setUnitPrice("4");
+        obj.setQuantity("7");
+        obj.setTax("2");
+     
+       
 
+        
 
-}
+       
+            assertTrue(getConnector().mergeOrderDetail(obj).contains(expected));
+        
+    }
+
+   
 }

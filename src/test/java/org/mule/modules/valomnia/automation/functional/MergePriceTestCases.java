@@ -6,14 +6,11 @@ package org.mule.modules.valomnia.automation.functional;
 import static org.junit.Assert.*;
 
 
-
-
-
-
 import java.util.List;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
+
 import org.mule.modules.valomnia.entities.Price;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
@@ -64,4 +61,32 @@ public class MergePriceTestCases extends AbstractTestCase<ValomniaConnector> {
             assertEquals(getConnector().mergePrice(obj), expected2);
     }
 
+@Test
+public void missingItemReferenceTest() {
+    java.lang.String expected = "itemReference missing: Failed to save the Price";
+    
+    Price obj = new Price(); 
+    obj.setPriceListReference("ref test PriceList");
+    obj.setUnitReference("ref test Unit");
+    obj.setValue("1");
+
+    String apiResponse=getConnector().mergePrice(obj);
+        assertTrue(apiResponse.contains(expected ));
+}
+
+@Test
+public void verifyPriceSaved() {
+	
+	List<Price> list = null;
+	boolean   exist=false;
+    
+        list = getConnector().findPrices();
+    
+    for (Price  price:list)
+    { if (( price.getItemReference().equals("ref test Item"))&&(price.getPriceListReference()
+            .equals("ref test PriceList")))
+        exist=true;
+    }
+	assertTrue(exist);
+}
 }
