@@ -85,6 +85,62 @@ public class MergeItemUnitTestCases extends AbstractTestCase<ValomniaConnector> 
             assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
         
     }
+    
+    @Test 
+    public void quantityItemUnitNotInteger()
+    {  java.lang.String expected = "Quantity must be an Integer";
+    ItemUnit obj = new ItemUnit();
+    obj.setItemReference("ref test Item");
+    obj.setUnitReference("ref test Unit");
+    obj.setQuantity("A");
+    
+
+        assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+    
+    }
+    
+   
+    
+    
+    @Test 
+    public void quantityItemUniNotGreaterThanZero()
+    {  java.lang.String expected = "Quantity value must greater than 0";
+    ItemUnit obj = new ItemUnit();
+    obj.setItemReference("ref test Item");
+    obj.setUnitReference("ref test Unit");
+    obj.setQuantity("-9");
+    
+
+        assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+    
+    }
+    
+    
+    @Test 
+    public void salesQuantityItemUnitNotInteger()
+    {  java.lang.String expected = "Sales Quantity must be an Integer";
+    ItemUnit obj = new ItemUnit();
+    obj.setItemReference("ref test Item");
+    obj.setUnitReference("ref test Unit");
+    obj.setQuantity("6");
+    obj.setSalesQty("A");
+
+        assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+    
+    }
+    @Test 
+    public void salesQuantityItemUniNotGreaterThanZero()
+    {  java.lang.String expected = "Sales Quantity value must greater than 0";
+    ItemUnit obj = new ItemUnit();
+    obj.setItemReference("ref test Item");
+    obj.setUnitReference("ref test Unit");
+    obj.setQuantity("9");
+    obj.setSalesQty("-5");
+    
+
+        assertTrue(getConnector().mergeItemUnit(obj).contains(expected));
+    
+    }
     @Test
     public void verifyItemUnitSaved() {
     	
