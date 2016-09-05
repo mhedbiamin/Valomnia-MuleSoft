@@ -96,7 +96,7 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 		assertTrue(apiResponse.contains(expected));
 	}
 
-	@Test
+	/*@Test
 	public void updateItemTest() {
 
 		java.lang.String expected = "OK";
@@ -113,4 +113,5 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 		String apiResponse = getConnector().mergeItem(obj);
 		assertTrue(apiResponse.contains(expected));
 	}
+	*/
 }
