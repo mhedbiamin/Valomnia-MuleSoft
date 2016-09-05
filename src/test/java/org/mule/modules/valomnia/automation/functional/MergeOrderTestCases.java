@@ -117,7 +117,51 @@ public class MergeOrderTestCases extends AbstractTestCase<ValomniaConnector> {
 		assertTrue(getConnector().mergeOrder(obj).contains(expected));
 
 	}
+	
+	@Test
+	public void missingStatusTest() {
+		java.lang.String expected = "status required";
 
+		Order obj = new Order();
+		obj.setReference("ref test Order");
+		obj.setCustomerReference("ref test Customer");
+		obj.setUserReference("ref test Employee");
+		obj.setTotalProducts("10");
+		obj.setTotalHT("100");
+		assertTrue(getConnector().mergeOrder(obj).contains(expected));
+
+	}
+	
+	@Test
+	public void notPositiveTotalProductsTest() {
+		java.lang.String expected = "totalProducts value must be positive";
+
+		Order obj = new Order();
+		obj.setReference("ref test Order");
+		obj.setCustomerReference("ref test Customer");
+		obj.setUserReference("ref test Employee");
+		obj.setTotalProducts("-10");
+		obj.setTotalHT("100");
+		obj.setStatus("PAID");
+		assertTrue(getConnector().mergeOrder(obj).contains(expected));
+
+	}
+	
+	
+	@Test
+	public void notDoubleTotalHTTest() {
+		java.lang.String expected = "totalHT must be a Double";
+
+		Order obj = new Order();
+		obj.setReference("ref test Order");
+		obj.setCustomerReference("ref test Customer");
+		obj.setUserReference("ref test Employee");
+		obj.setTotalProducts("10");
+		obj.setTotalHT("A");
+		obj.setStatus("PAID");
+		assertTrue(getConnector().mergeOrder(obj).contains(expected));
+
+	}
 	@Test
 	public void verifyOrderSaved() {
 
