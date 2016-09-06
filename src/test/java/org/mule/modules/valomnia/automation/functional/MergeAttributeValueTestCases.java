@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
+import org.mule.modules.valomnia.entities.Attribute;
 import org.mule.modules.valomnia.entities.AttributeValue;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
@@ -62,6 +63,48 @@ public class MergeAttributeValueTestCases extends AbstractTestCase<ValomniaConne
             assertEquals(getConnector().mergeAttributeValue(obj), expected1);
     }
     
+    
+    
+    
+    
+    @Test
+	public void missingAttributeReferenceTest() {
+		java.lang.String expected = "attributeReference missing";
+
+		AttributeValue obj = new AttributeValue();
+		
+		obj.setValue("S");
+		
+		assertTrue(getConnector().mergeAttributeValue(obj).contains(expected));
+
+	}
+    
+    @Test
+   	public void missingValueTest() {
+   		java.lang.String expected = "value missing";
+
+   		AttributeValue obj = new AttributeValue();
+   		
+   		obj.setAttributeReference("ref test Attribute");
+   		
+   		assertTrue(getConnector().mergeAttributeValue(obj).contains(expected));
+
+   	}
+    
+    
+    
+    
+    @Test
+   	public void attributeNotFoundTest() {
+   		java.lang.String expected = "Attribute not found";
+
+   		AttributeValue obj = new AttributeValue();
+   		
+   		obj.setAttributeReference("ref test Attribute12");
+   		obj.setValue("S");
+   		assertTrue(getConnector().mergeAttributeValue(obj).contains(expected));
+
+   	}
     @Test
     public void verifyAttributeValueSaved() {
     	

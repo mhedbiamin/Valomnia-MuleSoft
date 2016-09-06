@@ -52,7 +52,32 @@ public class MergeItemCategoryTestCases extends AbstractTestCase<ValomniaConnect
         else
             assertEquals(getConnector().mergeItemCategory(obj), expected1);
     }
-    
+    @Test
+	public void missingReferenceTest() {
+
+		java.lang.String expected = "Reference missing";
+
+		ItemCategory obj = new ItemCategory();
+		obj.setName("test ItemCategory");
+		
+
+
+		String apiResponse = getConnector().mergeItemCategory(obj);
+		assertTrue(apiResponse.contains(expected));
+	}
+    public void missingNameTest() {
+
+		java.lang.String expected = "name required";
+
+		ItemCategory obj = new ItemCategory();
+
+        obj.setReference("ref test ItemCategory");
+		
+
+
+		String apiResponse = getConnector().mergeItemCategory(obj);
+		assertTrue(apiResponse.contains(expected));
+	}
     @Test
     public void verifyItemCategorySaved() {
     	
