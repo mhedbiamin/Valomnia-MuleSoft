@@ -82,6 +82,46 @@ public class MergeCustomerTestCases extends AbstractTestCase<ValomniaConnector> 
  	       
  	    }
     
+    
+    @Test
+	 public void  missingNameTest() {
+	        java.lang.String expected = "Name required";
+	        
+	       Customer obj = new Customer();
+
+	       obj.setReference("ref test Customer");	      
+	        obj.setCountry("TN");
+	        obj.setCity("Sousse");
+	        
+	        String apiResponse=getConnector().mergeCustomer(obj);
+	        assertTrue(apiResponse.contains(expected ));
+
+	        
+
+	       
+	    }
+    
+    
+    @Test
+	 public void  customerCategoryNotFoundTest() {
+	        java.lang.String expected = "Category not found";
+	        
+	       Customer obj = new Customer();
+
+	       obj.setReference("ref test Customer");
+	       obj.setName("test  name");
+	       obj.setCategoryReference("category ");
+	        obj.setCountry("TN");
+	        obj.setCity("Sousse");
+	        
+	        String apiResponse=getConnector().mergeCustomer(obj);
+	        assertTrue(apiResponse.contains(expected ));
+
+	        
+
+	       
+	    }
+    
     @Test
     public void verifyCustomerSaved() {
     	

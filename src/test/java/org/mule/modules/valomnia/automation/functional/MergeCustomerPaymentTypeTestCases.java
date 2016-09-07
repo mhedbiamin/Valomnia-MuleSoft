@@ -3,7 +3,9 @@
  */
 package org.mule.modules.valomnia.automation.functional;
 
+
 import static org.junit.Assert.*;
+
 
 
 import java.util.List;
@@ -57,6 +59,30 @@ public class MergeCustomerPaymentTypeTestCases extends AbstractTestCase<Valomnia
             assertEquals(getConnector().mergeCustomerPaymentType(obj), expected1);
     }
 
+    @Test
+	public void missingReferenceTest() {
+		java.lang.String expected = "Reference missing";
+
+		 CustomerPaymentType obj = new CustomerPaymentType();
+		
+		 obj.setName("test CustomerPaymentType");
+	        
+	        
+		assertTrue(getConnector().mergeCustomerPaymentType(obj).contains(expected));
+
+	}
+    @Test
+   	public void missingNameTest() {
+   		java.lang.String expected = "Name required";
+
+   		 CustomerPaymentType obj = new CustomerPaymentType();
+   		
+   		 obj.setReference("ref test CustomerPaymentType");
+   	        
+   	        
+   		assertTrue(getConnector().mergeCustomerPaymentType(obj).contains(expected));
+
+   	}
     @Test
     public void verifyCustomerPaymentTypeSaved() {
     	

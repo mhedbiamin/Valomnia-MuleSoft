@@ -7,7 +7,7 @@
 package org.mule.modules.valomnia.entities;
 
 public class WareHouseStock {
-	private String id;
+	
 
 	private String organization;
 
@@ -15,21 +15,13 @@ public class WareHouseStock {
 
 	private String itemReference;
 
-	private String lastUpdated;
 
-	private String dateCreated;
 
 	private String quantity;
 
 	private String warehouseReference;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 
 	public String getOrganization() {
 		return organization;
@@ -55,21 +47,6 @@ public class WareHouseStock {
 		this.itemReference = itemReference;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
 
 	public String getQuantity() {
 		return quantity;
@@ -88,11 +65,53 @@ public class WareHouseStock {
 	}
 
 	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", unitReference = " + unitReference + ", itemReference = "
-				+ itemReference + ", lastUpdated = " + lastUpdated
-				+ ", dateCreated = " + dateCreated + ", quantity = " + quantity
-				+ ", warehouseReference = " + warehouseReference + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((itemReference == null) ? 0 : itemReference.hashCode());
+		result = prime * result + ((organization == null) ? 0 : organization.hashCode());
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
+		result = prime * result + ((unitReference == null) ? 0 : unitReference.hashCode());
+		result = prime * result + ((warehouseReference == null) ? 0 : warehouseReference.hashCode());
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		WareHouseStock other = (WareHouseStock) obj;
+		if (itemReference == null) {
+			if (other.itemReference != null)
+				return false;
+		} else if (!itemReference.equals(other.itemReference))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		if (quantity == null) {
+			if (other.quantity != null)
+				return false;
+		} else if (!quantity.equals(other.quantity))
+			return false;
+		if (unitReference == null) {
+			if (other.unitReference != null)
+				return false;
+		} else if (!unitReference.equals(other.unitReference))
+			return false;
+		if (warehouseReference == null) {
+			if (other.warehouseReference != null)
+				return false;
+		} else if (!warehouseReference.equals(other.warehouseReference))
+			return false;
+		return true;
+	}
+
+	
 }

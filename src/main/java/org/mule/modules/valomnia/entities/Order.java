@@ -49,6 +49,15 @@ public class Order {
 	private String delivaryCountry;
 
 	private String advanceAmount;
+	private String deliveryStatus;
+
+	public String getDeliveryStatus() {
+		return deliveryStatus;
+	}
+
+	public void setDeliveryStatus(String deliveryStatus) {
+		this.deliveryStatus = deliveryStatus;
+	}
 
 	public String getDelivaryPostalCode() {
 		return delivaryPostalCode;

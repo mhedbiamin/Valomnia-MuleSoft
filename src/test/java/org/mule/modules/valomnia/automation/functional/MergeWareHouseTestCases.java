@@ -71,7 +71,35 @@ public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector>
         String apiResponse=getConnector().mergeWareHouse(obj);
             assertTrue(apiResponse.contains(expected ));
     }
+    
+    
+    @Test
+    public void missingNameTest() {
+        java.lang.String expected = " name required";
+        
+        WareHouse obj = new WareHouse();   
+        obj.setReference("ref test WareHouse");
+        obj.setDescription("Test WareHouse ");
+        
+       
 
+        String apiResponse=getConnector().mergeWareHouse(obj);
+            assertTrue(apiResponse.contains(expected ));
+    }
+    
+    @Test
+    public void wareHouseParentNotFoundTest() {
+        java.lang.String expected = "Warehouse Parent not found";
+        
+        WareHouse obj = new WareHouse();  
+        obj.setReference("ref test WareHouse");
+        obj.setDescription("Test WareHouse ");
+        obj.setName("test name");
+        obj.setParentReference("parent warehouse");
+        String apiResponse=getConnector().mergeWareHouse(obj);
+            assertTrue(apiResponse.contains(expected ));
+    }
+    
     @Test
     public void verifyWareHouseSaved() {
     	

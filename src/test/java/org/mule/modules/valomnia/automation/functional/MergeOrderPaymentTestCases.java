@@ -4,15 +4,11 @@
 package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
-
-
-
-
-
 import java.util.List;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
+
 import org.mule.modules.valomnia.entities.OrderPayment;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
@@ -66,5 +62,19 @@ public class MergeOrderPaymentTestCases extends AbstractTestCase<ValomniaConnect
             assertEquals(getConnector().mergeOrderPayment(obj), expected2);
     }
 
-
+    @Test
+    public void verifyOrderPaymentSaved() {
+    	
+    	List<OrderPayment> list = null;
+    	boolean   exist=false;
+        
+            list = getConnector().findOrdersPayment();
+        
+        for (OrderPayment orderPayment:list)
+        { if ( orderPayment.getOrderReference().equals("ref test Order")&&  
+        		orderPayment.getPaymentReference().equals("ref test OrderPayment"))
+            exist=true;
+        }
+    	assertTrue(exist);
+    }
 }

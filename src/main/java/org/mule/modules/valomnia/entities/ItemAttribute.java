@@ -7,7 +7,6 @@
 package org.mule.modules.valomnia.entities;
 
 public class ItemAttribute {
-	private String id;
 
 	private String organization;
 
@@ -15,21 +14,9 @@ public class ItemAttribute {
 
 	private String value;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
 	private String displayOrder;
 
 	private String attributeReference;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getOrganization() {
 		return organization;
@@ -55,22 +42,6 @@ public class ItemAttribute {
 		this.value = value;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getDisplayOrder() {
 		return displayOrder;
 	}
@@ -85,6 +56,49 @@ public class ItemAttribute {
 
 	public void setAttributeReference(String attributeReference) {
 		this.attributeReference = attributeReference;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((attributeReference == null) ? 0 : attributeReference.hashCode());
+		result = prime * result + ((itemReference == null) ? 0 : itemReference.hashCode());
+		result = prime * result + ((organization == null) ? 0 : organization.hashCode());
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ItemAttribute other = (ItemAttribute) obj;
+		if (attributeReference == null) {
+			if (other.attributeReference != null)
+				return false;
+		} else if (!attributeReference.equals(other.attributeReference))
+			return false;
+		if (itemReference == null) {
+			if (other.itemReference != null)
+				return false;
+		} else if (!itemReference.equals(other.itemReference))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
+			return false;
+		return true;
 	}
 
 }
