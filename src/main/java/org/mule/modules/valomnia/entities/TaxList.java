@@ -7,36 +7,21 @@
 package org.mule.modules.valomnia.entities;
 
 public class TaxList {
-	private String id;
 
 	private String organization;
 
 	private String name;
 
 	private String taxType;
-	
+
 	private String reference;
 
-	
-    public String getReference() {
-        return reference;
-    }
-
-    
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    private String lastUpdated;
-
-	private String dateCreated;
-
-	public String getId() {
-		return id;
+	public String getReference() {
+		return reference;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setReference(String reference) {
+		this.reference = reference;
 	}
 
 	public String getOrganization() {
@@ -63,27 +48,36 @@ public class TaxList {
 		this.taxType = taxType;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", name = " + name + ", taxType = " + taxType
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + "]";
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TaxList other = (TaxList) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		if (reference == null) {
+			if (other.reference != null)
+				return false;
+		} else if (!reference.equals(other.reference))
+			return false;
+		if (taxType == null) {
+			if (other.taxType != null)
+				return false;
+		} else if (!taxType.equals(other.taxType))
+			return false;
+		return true;
 	}
+
 }

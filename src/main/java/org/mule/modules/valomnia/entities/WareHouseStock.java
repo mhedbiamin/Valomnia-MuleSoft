@@ -7,7 +7,6 @@
 package org.mule.modules.valomnia.entities;
 
 public class WareHouseStock {
-	
 
 	private String organization;
 
@@ -15,13 +14,9 @@ public class WareHouseStock {
 
 	private String itemReference;
 
-
-
 	private String quantity;
 
 	private String warehouseReference;
-
-	
 
 	public String getOrganization() {
 		return organization;
@@ -47,7 +42,6 @@ public class WareHouseStock {
 		this.itemReference = itemReference;
 	}
 
-
 	public String getQuantity() {
 		return quantity;
 	}
@@ -64,17 +58,6 @@ public class WareHouseStock {
 		this.warehouseReference = warehouseReference;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((itemReference == null) ? 0 : itemReference.hashCode());
-		result = prime * result + ((organization == null) ? 0 : organization.hashCode());
-		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
-		result = prime * result + ((unitReference == null) ? 0 : unitReference.hashCode());
-		result = prime * result + ((warehouseReference == null) ? 0 : warehouseReference.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -113,5 +96,4 @@ public class WareHouseStock {
 		return true;
 	}
 
-	
 }

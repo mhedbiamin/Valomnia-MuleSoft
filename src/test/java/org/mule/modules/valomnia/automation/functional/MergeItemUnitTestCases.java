@@ -57,6 +57,29 @@ public class MergeItemUnitTestCases extends AbstractTestCase<ValomniaConnector> 
             assertEquals(getConnector().mergeItemUnit(obj), expected2);
         else
             assertEquals(getConnector().mergeItemUnit(obj), expected1);
+        
+        /*change the  ItemUnit Quantity */
+        obj.setQuantity("3");
+        assertEquals(getConnector().mergeItemUnit(obj), expected1);
+        /*change the  ItemUnit SalesQuanity*/
+        obj.setSalesQty("10");
+        assertEquals(getConnector().mergeItemUnit(obj), expected1);
+        try {
+            list = getConnector().findItemUnits();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+        for (ItemUnit itemUnit : list)
+        {
+            if (itemUnit.getItemReference()
+                    .equals("ref test Item")&itemUnit.getUnitReference().equals("ref test Unit"))
+                obj=itemUnit;
+        }
+        assertEquals(obj.getQuantity(), "3");
+        assertEquals(obj.getSalesQty(),"10");
+        
+        
     }
     
     

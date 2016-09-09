@@ -50,7 +50,7 @@ public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector>
         obj.setReference("ref test WareHouse");
         obj.setName("test name");
         
-       
+      obj.setAddress("test adress");
 
         
 
@@ -58,6 +58,29 @@ public class MergeWareHouseTestCases extends AbstractTestCase<ValomniaConnector>
             assertEquals(getConnector().mergeWareHouse(obj), expected1);
         else
             assertEquals(getConnector().mergeWareHouse(obj), expected2);
+        /* change  warehouse adress */
+        obj.setAddress("test adress Updated");
+        assertEquals(getConnector().mergeWareHouse(obj), expected1);
+        /* change  warehouse Name */
+        obj.setName("test Name Updated");
+        assertEquals(getConnector().mergeWareHouse(obj), expected1);
+        try {
+            list = getConnector().findWareHouses();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+       
+
+        for (WareHouse wareHouse : list)  
+        {
+            if (wareHouse.getReference().equals("ref test WareHouse"))
+                    
+                obj=wareHouse;
+        }
+        assertEquals(obj.getName(), "test Name Updated");
+        assertEquals(obj.getAddress(), "test adress Updated");
+        
     }
     
     @Test

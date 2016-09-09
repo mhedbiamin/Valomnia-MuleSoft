@@ -48,6 +48,25 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 			assertEquals(getConnector().mergeItem(obj), expected2);
 		else
 			assertEquals(getConnector().mergeItem(obj), expected1);
+		/*change the   Item Description */
+		obj.setDescription("update description");
+		assertEquals(getConnector().mergeItem(obj), expected1);
+		/* change the Item Name */
+		obj.setName("test Item Updated");
+		assertEquals(getConnector().mergeItem(obj), expected1);
+		try {
+			list = getConnector().findItems();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		for (Item item : list) {
+			if (item.getReference().equals("ref test Item"))
+				obj=item;
+		}
+		assertEquals(obj.getDescription(), "update description");
+		assertEquals(obj.getName(), "test Item Updated");
 	}
 
 	@Test

@@ -7,25 +7,12 @@
 package org.mule.modules.valomnia.entities;
 
 public class Unit {
-	private String id;
 
 	private String organization;
 
 	private String name;
 
-	private String lastUpdated;
-
-	private String dateCreated;
-
 	private String reference;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getOrganization() {
 		return organization;
@@ -43,22 +30,6 @@ public class Unit {
 		this.name = name;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getReference() {
 		return reference;
 	}
@@ -67,11 +38,33 @@ public class Unit {
 		this.reference = reference;
 	}
 
+
 	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				+ ", name = " + name + ", lastUpdated = " + lastUpdated
-				+ ", dateCreated = " + dateCreated + ", reference = "
-				+ reference + "]";
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Unit other = (Unit) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		if (reference == null) {
+			if (other.reference != null)
+				return false;
+		} else if (!reference.equals(other.reference))
+			return false;
+		return true;
 	}
+
+	
 }

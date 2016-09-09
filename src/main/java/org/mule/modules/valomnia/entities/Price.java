@@ -9,7 +9,7 @@ package org.mule.modules.valomnia.entities;
 
 public class Price {
 
-private Integer id;
+
 private String priceListReference;
 private String itemReference;
 private String unitReference;
@@ -17,27 +17,8 @@ private String value;
 private Object unitPrice;
 private Object marginRate;
 private String organization;
-private String dateCreated;
-private String lastUpdated;
 
 
-/**
-* 
-* @return
-* The id
-*/
-public Integer getId() {
-return id;
-}
-
-/**
-* 
-* @param id
-* The id
-*/
-public void setId(Integer id) {
-this.id = id;
-}
 
 /**
 * 
@@ -165,42 +146,56 @@ public void setOrganization(String organization) {
 this.organization = organization;
 }
 
-/**
-* 
-* @return
-* The dateCreated
-*/
-public String getDateCreated() {
-return dateCreated;
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Price other = (Price) obj;
+	if (itemReference == null) {
+		if (other.itemReference != null)
+			return false;
+	} else if (!itemReference.equals(other.itemReference))
+		return false;
+	if (marginRate == null) {
+		if (other.marginRate != null)
+			return false;
+	} else if (!marginRate.equals(other.marginRate))
+		return false;
+	if (organization == null) {
+		if (other.organization != null)
+			return false;
+	} else if (!organization.equals(other.organization))
+		return false;
+	if (priceListReference == null) {
+		if (other.priceListReference != null)
+			return false;
+	} else if (!priceListReference.equals(other.priceListReference))
+		return false;
+	if (unitPrice == null) {
+		if (other.unitPrice != null)
+			return false;
+	} else if (!unitPrice.equals(other.unitPrice))
+		return false;
+	if (unitReference == null) {
+		if (other.unitReference != null)
+			return false;
+	} else if (!unitReference.equals(other.unitReference))
+		return false;
+	if (value == null) {
+		if (other.value != null)
+			return false;
+	} else if (!value.equals(other.value))
+		return false;
+	return true;
 }
 
-/**
-* 
-* @param dateCreated
-* The dateCreated
-*/
-public void setDateCreated(String dateCreated) {
-this.dateCreated = dateCreated;
-}
-
-/**
-* 
-* @return
-* The lastUpdated
-*/
-public String getLastUpdated() {
-return lastUpdated;
-}
-
-/**
-* 
-* @param lastUpdated
-* The lastUpdated
-*/
-public void setLastUpdated(String lastUpdated) {
-this.lastUpdated = lastUpdated;
-}
-
-
 
 }
+
+
+

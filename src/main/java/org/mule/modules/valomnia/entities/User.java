@@ -7,7 +7,6 @@
 package org.mule.modules.valomnia.entities;
 
 public class User {
-	private String id;
 
 	private String enabled;
 
@@ -16,18 +15,6 @@ public class User {
 	private String email;
 
 	private String employeeReference;
-
-	private String lastUpdated;
-
-	private String dateCreated;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getEnabled() {
 		return enabled;
@@ -61,28 +48,37 @@ public class User {
 		this.employeeReference = employeeReference;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
 
 	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", enabled = " + enabled
-				+ ", organization = " + organization + ", email = " + email
-				+ ", employeeReference = " + employeeReference
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + "]";
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (employeeReference == null) {
+			if (other.employeeReference != null)
+				return false;
+		} else if (!employeeReference.equals(other.employeeReference))
+			return false;
+		if (enabled == null) {
+			if (other.enabled != null)
+				return false;
+		} else if (!enabled.equals(other.enabled))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		return true;
 	}
+
 }

@@ -5,7 +5,6 @@ package org.mule.modules.valomnia.automation.functional;
 
 import static org.junit.Assert.*;
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -13,63 +12,71 @@ import org.mule.modules.valomnia.ValomniaConnector;
 import org.mule.modules.valomnia.entities.CustomerTaxList;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
-
 public class MergeCustomerTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
 
-    public MergeCustomerTaxListTestCases() {
-        super(ValomniaConnector.class);
-    }
-    @Test
-    public void verify() {
-        java.lang.String expected1 = "Success Updated";
-        java.lang.String expected2 = "Success created";
-        CustomerTaxList obj = new CustomerTaxList();
+	public MergeCustomerTaxListTestCases() {
+		super(ValomniaConnector.class);
+	}
 
-        boolean exist = false;
+	@Test
+	public void verify() {
+		java.lang.String expected1 = "Success Updated";
+		java.lang.String expected2 = "Success created";
+		CustomerTaxList obj = new CustomerTaxList();
 
-        List<CustomerTaxList> list = null;
-        try {
-            list = getConnector().findCustomersTaxList();
-        } catch (Exception e) {
+		boolean exist = false;
 
-            e.printStackTrace();
-        }
-       
+		List<CustomerTaxList> list = null;
+		try {
+			list = getConnector().findCustomersTaxList();
+		} catch (Exception e) {
 
-        for (CustomerTaxList customerTaxList : list)
-        {      if (customerTaxList.getCustomerReference()!=null)
-            if ( customerTaxList.getCustomerReference()
-                    .equals("ref test Customer")& customerTaxList.getTaxListReference().equals("test TaxList Reference"))
-                exist = true;
-        }
-        obj.setCustomerReference("ref test Customer");
-        
-        obj.setTaxListReference("test TaxList Reference");
-        
-       
+			e.printStackTrace();
+		}
 
-        
+		for (CustomerTaxList customerTaxList : list) {
+			if (customerTaxList.getCustomerReference() != null)
+				if (customerTaxList.getCustomerReference().equals("ref test Customer")
+						& customerTaxList.getTaxListReference().equals("test TaxList Reference"))
+					exist = true;
+		}
+		obj.setCustomerReference("ref test Customer");
 
-        if (!exist)
-            assertEquals(getConnector().mergeCustomerTaxList(obj), expected2);
-        else
-            assertEquals(getConnector().mergeCustomerTaxList(obj), expected1);
-    }
-    @Test
-    public void verifyCustomerTaxListSaved() {
-    	
-    	List<CustomerTaxList> list = null;
-    	boolean   exist=false;
-        
-            list = getConnector().findCustomersTaxList();
-        
-        for (CustomerTaxList customerTaxList:list)
-        { if ((customerTaxList.getCustomerReference()!=null )&&(customerTaxList.getCustomerReference().equals("ref test Customer"))&&  
-        		(customerTaxList.getTaxListReference().equals("test TaxList Reference")))
-            exist=true;
-        }
-    	assertTrue(exist);
-    }
+		obj.setTaxListReference("test TaxList Reference");
 
+		if (!exist)
+			assertEquals(getConnector().mergeCustomerTaxList(obj), expected2);
+		else
+			assertEquals(getConnector().mergeCustomerTaxList(obj), expected1);
+	}
+
+	@Test
+	public void missingTaxListReferenceTest() {
+		java.lang.String expected = "taxListReference required";
+
+		CustomerTaxList obj = new CustomerTaxList();
+
+		obj.setCustomerReference("ref test CustomerPaymentType");
+
+		assertTrue(getConnector().mergeCustomerTaxList(obj).contains(expected));
+
+	}
+
+	@Test
+	public void verifyCustomerTaxListSaved() {
+
+		List<CustomerTaxList> list = null;
+		boolean exist = false;
+
+		list = getConnector().findCustomersTaxList();
+
+		for (CustomerTaxList customerTaxList : list) {
+			if ((customerTaxList.getCustomerReference() != null)
+					&& (customerTaxList.getCustomerReference().equals("ref test Customer"))
+					&& (customerTaxList.getTaxListReference().equals("test TaxList Reference")))
+				exist = true;
+		}
+		assertTrue(exist);
+	}
 
 }

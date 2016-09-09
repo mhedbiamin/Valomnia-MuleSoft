@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.ValomniaConnector;
-
 import org.mule.modules.valomnia.entities.Price;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
@@ -59,6 +58,29 @@ public class MergePriceTestCases extends AbstractTestCase<ValomniaConnector> {
             assertEquals(getConnector().mergePrice(obj), expected1);
         else
             assertEquals(getConnector().mergePrice(obj), expected2);
+        
+        /*change the price value*/
+        obj.setValue("7");
+		assertEquals(getConnector().mergePrice(obj), expected1);
+        
+        try {
+            list = getConnector().findPrices();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+       
+        for (Price price : list)
+        {
+            if (price.getItemReference()
+                    .equals("ref test Item")&
+                    price.getPriceListReference()
+                    .equals("ref test PriceList")&
+                    price.getUnitReference().equals("ref test Unit"))
+                obj=price;
+        }
+        assertEquals(obj.getValue(),"7");
+        
     }
 
 @Test

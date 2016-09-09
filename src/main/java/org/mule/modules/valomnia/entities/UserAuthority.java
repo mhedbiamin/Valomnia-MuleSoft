@@ -7,29 +7,10 @@
 package org.mule.modules.valomnia.entities;
 
 public class UserAuthority {
-	private String lastUpdated;
-
-	private String dateCreated;
 
 	private String userEmail;
 
 	private String authorityName;
-
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
 
 	public String getUserEmail() {
 		return userEmail;
@@ -47,10 +28,4 @@ public class UserAuthority {
 		this.authorityName = authorityName;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + ", userEmail = " + userEmail
-				+ ", authorityName = " + authorityName + "]";
-	}
 }
