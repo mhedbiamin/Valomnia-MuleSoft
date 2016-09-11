@@ -9,7 +9,7 @@ package org.mule.modules.valomnia.entities;
 public class Item {
 
 	private String reference;
-	private String organization;
+
 	private String name;
 	private String parentReference;
 	private String categoryReference;
@@ -20,9 +20,7 @@ public class Item {
 	private String image1;
 	private String image2;
 	private String image3;
-	
 
-	
 	/**
 	 * 
 	 * @return The reference
@@ -38,23 +36,6 @@ public class Item {
 	 */
 	public void setReference(String reference) {
 		this.reference = reference;
-	}
-
-	/**
-	 * 
-	 * @return The organization
-	 */
-	public String getOrganization() {
-		return organization;
-	}
-
-	/**
-	 * 
-	 * @param organization
-	 *            The organization
-	 */
-	public void setOrganization(String organization) {
-		this.organization = organization;
 	}
 
 	/**
@@ -129,7 +110,7 @@ public class Item {
 	 * 
 	 * @return The isActive
 	 */
-	public String  getIsActive() {
+	public String getIsActive() {
 		return isActive;
 	}
 
@@ -193,11 +174,7 @@ public class Item {
 		this.image3 = image3;
 	}
 
-	
-
-	
-
-	public  String isDisplayOrder() {
+	public String isDisplayOrder() {
 		return displayOrder;
 	}
 
@@ -206,64 +183,7 @@ public class Item {
 	}
 
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj){
-			return true;
-		}
-		if (obj == null){
-			return false;
-		}
-		if (getClass() != obj.getClass()){
-			return false;
-			}
-		Item other = (Item) obj;
-		if (categoryReference == null) {
-			if (other.categoryReference != null)
-			{
-				return false;
-			}
-		} else if (!categoryReference.equals(other.categoryReference)){
-			return false;
-			}
-		
-		if (name == null) {
-			if (other.name != null){
-				return false;
-				}
-		} else if (!name.equals(other.name)){
-			return false;
-			}
-		if (reference == null) {
-			if (other.reference != null){
-				return false;
-				}
-		} else if (!reference.equals(other.reference)){
-			return false;
-			}
-		return true;
 	}
 
-
-
-
-
-@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime
-				* result
-				+ ((categoryReference == null) ? 0 : categoryReference
-						.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((reference == null) ? 0 : reference.hashCode());
-		return result;
-	}
-
-
-
-
-}
+	
 

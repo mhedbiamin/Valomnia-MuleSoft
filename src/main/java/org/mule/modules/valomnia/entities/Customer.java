@@ -7,7 +7,6 @@
 package org.mule.modules.valomnia.entities;
 
 public class Customer {
-	
 
 	private String phone;
 
@@ -22,8 +21,6 @@ public class Customer {
 	private String city;
 
 	private String balance;
-
-	private String organization;
 
 	private String postalCode;
 
@@ -115,22 +112,12 @@ public class Customer {
 		this.city = city;
 	}
 
-	
-
 	public String getBalance() {
 		return balance;
 	}
 
 	public void setBalance(String balance) {
 		this.balance = balance;
-	}
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
 	}
 
 	public String getPostalCode() {
@@ -300,18 +287,6 @@ public class Customer {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());	
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((reference == null) ? 0 : reference.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -332,7 +307,7 @@ public class Customer {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		
+
 		if (name == null) {
 			if (other.name != null)
 				return false;

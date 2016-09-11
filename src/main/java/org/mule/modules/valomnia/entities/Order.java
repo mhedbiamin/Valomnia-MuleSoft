@@ -27,10 +27,7 @@ public class Order {
 
 	private String discount;
 
-
 	private String delivaryAddress;
-
-	private String organization;
 
 	private String deliveryComment;
 
@@ -91,7 +88,6 @@ public class Order {
 		this.status = status;
 	}
 
-	
 	public String getTotalProducts() {
 		return totalProducts;
 	}
@@ -132,21 +128,12 @@ public class Order {
 		this.discount = discount;
 	}
 
-	
 	public String getDelivaryAddress() {
 		return delivaryAddress;
 	}
 
 	public void setDelivaryAddress(String delivaryAddress) {
 		this.delivaryAddress = delivaryAddress;
-	}
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
 	}
 
 	public String getDeliveryComment() {
@@ -172,8 +159,6 @@ public class Order {
 	public void setEmployeeReference(String employeeReference) {
 		this.employeeReference = employeeReference;
 	}
-
-	
 
 	public String getUserReference() {
 		return userReference;
@@ -203,8 +188,7 @@ public class Order {
 		return customerPaymentTypeReference;
 	}
 
-	public void setCustomerPaymentTypeReference(
-			String customerPaymentTypeReference) {
+	public void setCustomerPaymentTypeReference(String customerPaymentTypeReference) {
 		this.customerPaymentTypeReference = customerPaymentTypeReference;
 	}
 
@@ -222,80 +206,6 @@ public class Order {
 
 	public void setAdvanceAmount(String advanceAmount) {
 		this.advanceAmount = advanceAmount;
-	}
-
-	@Override
-	public String toString() {
-		return "ClassPojo [delivaryPostalCode = " + delivaryPostalCode
-				+ ", delivaryCity = " + delivaryCity + ", paymentDate = "
-				+ paymentDate + ", status = " + status + ", totalProducts = " + totalProducts
-				+ ", customerReference = " + customerReference
-				+ ", totalDiscounted = " + totalDiscounted + ", reference = "
-				+ reference + ", discount = " + discount 
-				+ ", delivaryAddress = " + delivaryAddress
-				+ ", organization = " + organization + ", deliveryComment = "
-				+ deliveryComment + ", operationType = " + operationType
-				+ ", employeeReference = " + employeeReference
-				+ ", userReference = "
-				+ userReference + ", totalHT = " + totalHT
-				+ ", deliveryDate = " + deliveryDate
-				+ ", customerPaymentTypeReference = "
-				+ customerPaymentTypeReference + ", delivaryCountry = "
-				+ delivaryCountry + ", advanceAmount = " + advanceAmount + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime
-				* result
-				+ ((customerReference == null) ? 0 : customerReference
-						.hashCode());
-		result = prime * result
-				+ ((delivaryCity == null) ? 0 : delivaryCity.hashCode());
-		result = prime * result
-				+ ((reference == null) ? 0 : reference.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Order other = (Order) obj;
-
-		
-		if (delivaryCity == null) {
-			if (other.delivaryCity != null) {
-				return false;
-			}
-		} else if (!delivaryCity.equals(other.delivaryCity)) {
-			return false;
-		}
-		if (reference == null) {
-			if (other.reference != null) {
-				return false;
-			}
-		} else if (!reference.equals(other.reference)) {
-			return false;
-		}
-		if (status == null) {
-			if (other.status != null) {
-				return false;
-			}
-		} else if (!status.equals(other.status)) {
-			return false;
-		}
-		return true;
 	}
 
 }

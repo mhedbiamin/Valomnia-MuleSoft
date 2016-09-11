@@ -42,13 +42,15 @@ public class MergeCustomerPaymentTypeTestCases extends AbstractTestCase<Valomnia
 
         for (CustomerPaymentType customerPaymentType : list)
         {
-            if (customerPaymentType.getReference()
+            if ((customerPaymentType.getReference()
                     .equals("ref test CustomerPaymentType"))
+            	&&(customerPaymentType.getName().equals("test CustomerPaymentType")))
                 exist = true;
         }
         obj.setName("test CustomerPaymentType");
         
         obj.setReference("ref test CustomerPaymentType");
+        
        
 
         

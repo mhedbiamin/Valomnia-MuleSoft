@@ -8,18 +8,8 @@ package org.mule.modules.valomnia.entities;
 
 public class TaxType {
 
-	private String organization;
-
 	private String name;
 	private String isActive;
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
 
 	public String getName() {
 		return name;
@@ -35,33 +25,6 @@ public class TaxType {
 
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TaxType other = (TaxType) obj;
-		if (isActive == null) {
-			if (other.isActive != null)
-				return false;
-		} else if (!isActive.equals(other.isActive))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (organization == null) {
-			if (other.organization != null)
-				return false;
-		} else if (!organization.equals(other.organization))
-			return false;
-		return true;
 	}
 
 }

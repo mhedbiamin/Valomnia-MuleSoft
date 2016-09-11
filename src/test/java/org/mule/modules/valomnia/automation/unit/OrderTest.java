@@ -4,47 +4,82 @@
 package org.mule.modules.valomnia.automation.unit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
 import org.mule.modules.valomnia.entities.Order;
+
+import java.lang.reflect.Field;
 
 public class OrderTest {
 
 	@Test
-	public void testOrederssAreEqual() {
-		
-		Order order = new Order ();
+	public void testSetterReference_setsProperly() throws NoSuchFieldException, IllegalAccessException {
+		// given
+		Order order = new Order();
+
+		// when
+		order.setReference("test reference");
+
+		// then
+		final Field field = order.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		assertEquals(field.get(order), "test reference");
+	}
+
+	@Test
+	public void testSetterStatus_setsProperly() throws NoSuchFieldException, IllegalAccessException {
+		// given
+		Order order = new Order();
+
+		// when
+		order.setStatus("PAYED");
+
+		// then
+		Field field = order.getClass().getDeclaredField("status");
+		field.setAccessible(true);
+		assertEquals("Fields didn't match", field.get(order), "PAYED");
+	}
+
+	@Test
+	public void testGetterReferssence_getsValue() throws NoSuchFieldException, IllegalAccessException {
+		final Order order = new Order();
+
+		Field field = order.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		field.set(order, "test reference");
+
+		// when
+		final String result = order.getReference();
+
+		// then
+		assertEquals("field wasn't retrieved properly", result, "test reference");
+	}
+
+	@Test
+	public void testOrderGetters() {
+
+		Order order = new Order();
 		order.setReference("test reference");
 		order.setStatus("Payed");
 		order.setDelivaryCity("test City");
-		
-		Order order1 = new Order ();
-		order1.setReference("test reference");
-		order1.setStatus("Payed");
-		order1.setDelivaryCity("test City");
-		
-		assertEquals(order,order1);
-		
+		order.setDelivaryAddress("delivary Address");
+		order.setCustomerPaymentTypeReference("customerPaymentTypeReference");
+		order.setDeliveryDate("12/3/2000");
+		order.setDeliveryStatus("PENDING");
+		order.setOperationType("order");
+		order.setCustomerReference("customerReference");
+		order.setDelivaryCountry("delivaryCountry");
+
+		assertEquals(order.getStatus(), "Payed");
+		assertEquals(order.getDelivaryCity(), "test City");
+		assertEquals(order.getDelivaryAddress(), "delivary Address");
+		assertEquals(order.getCustomerPaymentTypeReference(), "customerPaymentTypeReference");
+		assertEquals(order.getDeliveryDate(), "12/3/2000");
+		assertEquals(order.getDeliveryStatus(), "PENDING");
+		assertEquals(order.getOperationType(), "order");
+		assertEquals(order.getCustomerReference(), "customerReference");
+		assertEquals(order.getDelivaryCountry(), "delivaryCountry");
+
 	}
-	
-	@Test
-	public void testOrdersAreNotEqual() {
-		Order order = new Order ();
-		order.setReference("test reference 1");
-		order.setStatus("Payed");
-		order.setDelivaryCity("test City");
-		
-		Order order1 = new Order ();
-		order1.setReference("test reference");
-		order1.setStatus("Payed");
-		order1.setDelivaryCity("test City1");
-		
-		
-		
-		assertFalse(order.equals(order1));
-		
-	}
-	
-	
-	
+
 }

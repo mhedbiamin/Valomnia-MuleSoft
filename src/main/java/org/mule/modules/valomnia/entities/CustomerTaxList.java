@@ -7,31 +7,11 @@
 package org.mule.modules.valomnia.entities;
 
 public class CustomerTaxList {
-	private String id;
-
-	private String organization;
 
 	private String customerReference;
 
 	private String taxListReference;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
-
-	
 	public String getCustomerReference() {
 		return customerReference;
 	}
@@ -48,10 +28,4 @@ public class CustomerTaxList {
 		this.taxListReference = taxListReference;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [id = " + id + ", organization = " + organization
-				 + ", customerReference = " + customerReference
-				+ ", taxListReference = " + taxListReference + "]";
-	}
 }

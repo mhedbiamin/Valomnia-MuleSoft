@@ -23,7 +23,7 @@ public class Contact {
 
 	private String country;
 
-	private String organization;
+	
 
 	private String postalCode;
 
@@ -109,13 +109,7 @@ public class Contact {
 
 	
 
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
+	
 
 	public String getPostalCode() {
 		return postalCode;
@@ -183,16 +177,8 @@ public class Contact {
 		this.mobile = mobile;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [lastName = " + lastName + ", phone = " + phone
-				+ ", fax = " + fax + 
-				", phone2 = " + phone2 + ", photo = " + photo
-				+ ", customerReference = " + customerReference + ", city = "
-				+ city + ", country = " + country + ", organization = " + organization + ", postalCode = "
-				+ postalCode + ", address = " + address + ", email = " + email + ", userReference = "
-				+ userReference + ", fonction = " + fonction + ", firstName = "
-				+ firstName + ", comment = " + comment + ", mobile = " + mobile
-				+ "]";
-	}
+	
+	
+
+	
 }

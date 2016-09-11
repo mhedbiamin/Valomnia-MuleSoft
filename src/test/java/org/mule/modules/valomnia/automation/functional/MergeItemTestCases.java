@@ -35,12 +35,15 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 		}
 
 		for (Item item : list) {
-			if (item.getReference().equals("ref test Item"))
+			if (item.getReference().equals("ref test Item")
+					&& (item.getCategoryReference().equals("ref test ItemCategory"))
+				)
 				exist = true;
 		}
 		obj.setName("test Item");
 		obj.setReference("ref test Item");
 		obj.setCategoryReference("ref test ItemCategory");
+		obj.setIsActive("True");
 
 		obj.setDescription("TEST DESCRIPTION");
 
@@ -48,7 +51,7 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 			assertEquals(getConnector().mergeItem(obj), expected2);
 		else
 			assertEquals(getConnector().mergeItem(obj), expected1);
-		/*change the   Item Description */
+		/* change the Item Description */
 		obj.setDescription("update description");
 		assertEquals(getConnector().mergeItem(obj), expected1);
 		/* change the Item Name */
@@ -63,7 +66,7 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 
 		for (Item item : list) {
 			if (item.getReference().equals("ref test Item"))
-				obj=item;
+				obj = item;
 		}
 		assertEquals(obj.getDescription(), "update description");
 		assertEquals(obj.getName(), "test Item Updated");
@@ -115,22 +118,19 @@ public class MergeItemTestCases extends AbstractTestCase<ValomniaConnector> {
 		assertTrue(apiResponse.contains(expected));
 	}
 
-	/*@Test
-	public void updateItemTest() {
-
-		java.lang.String expected = "OK";
-
-		Item obj = new Item();
-		obj.setName("test Item");
-		obj.setReference("ref test Item");
-		obj.setCategoryReference("ref test ItemCategory");
-
-		
-
-		
-
-		String apiResponse = getConnector().mergeItem(obj);
-		assertTrue(apiResponse.contains(expected));
-	}
-	*/
+	/*
+	 * @Test public void updateItemTest() {
+	 * 
+	 * java.lang.String expected = "OK";
+	 * 
+	 * Item obj = new Item(); obj.setName("test Item"); obj.setReference(
+	 * "ref test Item"); obj.setCategoryReference("ref test ItemCategory");
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * String apiResponse = getConnector().mergeItem(obj);
+	 * assertTrue(apiResponse.contains(expected)); }
+	 */
 }

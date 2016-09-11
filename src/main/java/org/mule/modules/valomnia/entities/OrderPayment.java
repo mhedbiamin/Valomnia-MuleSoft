@@ -9,17 +9,11 @@ package org.mule.modules.valomnia.entities;
 public class OrderPayment {
 	private String isLast;
 
-	private String id;
-
 	private String paymentDate;
 
 	private String paymentReference;
 
 	private String orderReference;
-
-	private String lastUpdated;
-
-	private String dateCreated;
 
 	private String customerPaymentTypeReference;
 
@@ -31,14 +25,6 @@ public class OrderPayment {
 
 	public void setIsLast(String isLast) {
 		this.isLast = isLast;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getPaymentDate() {
@@ -65,28 +51,11 @@ public class OrderPayment {
 		this.orderReference = orderReference;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getCustomerPaymentTypeReference() {
 		return customerPaymentTypeReference;
 	}
 
-	public void setCustomerPaymentTypeReference(
-			String customerPaymentTypeReference) {
+	public void setCustomerPaymentTypeReference(String customerPaymentTypeReference) {
 		this.customerPaymentTypeReference = customerPaymentTypeReference;
 	}
 
@@ -98,14 +67,4 @@ public class OrderPayment {
 		this.advanceAmount = advanceAmount;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [isLast = " + isLast + ", id = " + id
-				+ ", paymentDate = " + paymentDate + ", paymentReference = "
-				+ paymentReference + ", orderReference = " + orderReference
-				+ ", lastUpdated = " + lastUpdated + ", dateCreated = "
-				+ dateCreated + ", customerPaymentTypeReference = "
-				+ customerPaymentTypeReference + ", advanceAmount = "
-				+ advanceAmount + "]";
-	}
 }

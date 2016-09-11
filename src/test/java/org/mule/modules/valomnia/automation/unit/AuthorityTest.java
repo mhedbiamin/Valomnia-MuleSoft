@@ -4,52 +4,37 @@
 package org.mule.modules.valomnia.automation.unit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
+import java.lang.reflect.Field;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.entities.Authority;
 
-
 public class AuthorityTest {
 
+	@Test
+	public void testSetterAuthorityName_setsProperly() throws NoSuchFieldException, IllegalAccessException {
 
+		Authority authority = new Authority();
+
+		authority.setName("authority test");
+
+		final Field field = authority.getClass().getDeclaredField("name");
+		field.setAccessible(true);
+		assertEquals(field.get(authority), "authority test");
+	}
 
 	@Test
-	public void testAuthorityAreEqual() {
-		
-		Authority  authority = new Authority();
-		
-		
-		authority.setName("authority test");
-		authority.setOrganization("test Organization");
-		
-		
-		Authority  authority1 = new Authority();
-	
-		authority1.setName("authority test");
-		authority1.setOrganization("test Organization");
-		
-		assertEquals(authority,authority1);
-		
+	public void testGetterAuthorityName_getsValue() throws NoSuchFieldException, IllegalAccessException {
+		final Authority authority = new Authority();
+
+		Field field = authority.getClass().getDeclaredField("name");
+		field.setAccessible(true);
+		field.set(authority, "authority test");
+
+		final String result = authority.getName();
+
+		assertEquals("field wasn't retrieved properly", result, "authority test");
 	}
-	
-	@Test
-	public void testAuthorityAreNotEqual() {
-		Authority  authority = new Authority();
-	
-		authority.setName("authority test");
-		authority.setOrganization("test Organization");
-		
-		
-		Authority  authority1 = new Authority();
-		
-		authority1.setName("authority test");
-		authority1.setOrganization("test Organization 1");
-		
-		
-		
-		assertFalse(authority.equals(authority1));
-		
-	}
-	
+
 }

@@ -38,8 +38,9 @@ public class MergeLoadingTestCases extends AbstractTestCase<ValomniaConnector> {
 
         for (Loading loading : list)
         {
-            if (loading.getReference().equals("ref test Loading"))
-                    
+            if ((loading.getReference().equals("ref test Loading"))
+            		&&(loading.getWarehouseReference().equals("ref test WareHouse")))
+                   
                 exist = true;
         }
         

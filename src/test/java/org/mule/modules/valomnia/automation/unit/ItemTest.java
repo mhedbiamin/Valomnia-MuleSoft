@@ -5,48 +5,65 @@ package org.mule.modules.valomnia.automation.unit;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Field;
+
 import org.junit.Test;
 import org.mule.modules.valomnia.entities.Item;
 
 public class ItemTest {
 
-	
 	@Test
-	public void testItemsAreEqual() {
-		
-		Item item = new Item ();
+	public void testSetterItemReference_setsProperly() throws NoSuchFieldException, IllegalAccessException {
+
+		Item item = new Item();
+
 		item.setReference("test reference");
-		item.setCategoryReference("drinks");
-		item.setName("item test");
+
+		final Field field = item.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		assertEquals(field.get(item), "test reference");
+	}
+
+	@Test
+	public void testSetterItemCategory_setsProperly() throws NoSuchFieldException, IllegalAccessException {
+		Item item = new Item();
+
+		item.setCategoryReference("test category Reference");
+
+		Field field = item.getClass().getDeclaredField("categoryReference");
+		field.setAccessible(true);
+		assertEquals("Fields didn't match", field.get(item), "test category Reference");
+	}
+
+	@Test
+	public void testGetterItemReference_getsValue() throws NoSuchFieldException, IllegalAccessException {
+		final Item item = new Item();
+
+		Field field = item.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		field.set(item, "test reference");
+
+		final String result = item.getReference();
+
+		assertEquals("field wasn't retrieved properly", result, "test reference");
+	}
+	@Test
+	public void testItemSetters_getsValue() throws NoSuchFieldException, IllegalAccessException {
+		final Item item = new Item();
+
+		item.setDescription("test description");
+		item.setIsActive("True");
+		item.setParentReference("item parent reference");
+		item.setName("test name");
+		assertEquals(item.getDescription(), "test description");
+		assertEquals(item.getParentReference(),"item parent reference");
+		assertEquals(item.getName(),"test name");
 		
-		Item item1 = new Item ();
-		item1.setReference("test reference");
-		item1.setCategoryReference("drinks");
-		item1.setName("item test");
-		
-		
-		assertEquals(item,item1);
-		
+		assertEquals(item.getIsActive(),"True");
+
 	}
 	
-	@Test
-	public void testItemsAreNotEqual() {
-		
-		Item item = new Item ();
-		item.setReference("test reference");
-		item.setCategoryReference("drinks");
-		item.setName("item test");
-		
-		Item item1 = new Item ();
-		item1.setReference("test reference1");
-		item1.setCategoryReference("drinks");
-		item1.setName("item test1");
-		
-		
-		assertFalse(item.equals(item1));
-		
-	}
+
 	
-	
-	
+
 }

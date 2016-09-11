@@ -1,44 +1,68 @@
 package org.mule.modules.valomnia.automation.unit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
+import java.lang.reflect.Field;
 
 import org.junit.Test;
 import org.mule.modules.valomnia.entities.WareHouse;
 
 public class WareHouseTest {
+
 	@Test
-	public void testWareHousesAreEqual() {
-		
+	public void testSetterWareHouseReference_setsProperly() throws NoSuchFieldException, IllegalAccessException {
+
+		WareHouse wareHouse = new WareHouse();
+
+		wareHouse.setReference("test reference");
+
+		final Field field = wareHouse.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		assertEquals(field.get(wareHouse), "test reference");
+	}
+
+	@Test
+	public void testSetterWareHouseEmployeeReference_setsProperly()
+			throws NoSuchFieldException, IllegalAccessException {
+		WareHouse wareHouse = new WareHouse();
+
+		wareHouse.setEmployeeReference("test employee reference");
+
+		final Field field = wareHouse.getClass().getDeclaredField("employeeReference");
+		field.setAccessible(true);
+
+		assertEquals("Fields didn't match", field.get(wareHouse), "test employee reference");
+	}
+
+	@Test
+	public void testGetterReference() throws NoSuchFieldException, IllegalAccessException {
+
+		WareHouse wareHouse = new WareHouse();
+
+		Field field = wareHouse.getClass().getDeclaredField("reference");
+		field.setAccessible(true);
+		field.set(wareHouse, "test reference");
+
+		final String result = wareHouse.getReference();
+
+		assertEquals("field wasn't retrieved properly", result, "test reference");
+	}
+
+	@Test
+	public void testWareHouseGetters() {
+
 		WareHouse wareHouse = new WareHouse();
 		wareHouse.setReference("test reference");
 		wareHouse.setEmployeeReference("employee reference");
 		wareHouse.setName("wareHouse name");
-		
-		WareHouse wareHouse1 = new WareHouse();
-		wareHouse1.setReference("test reference");
-		wareHouse1.setEmployeeReference("employee reference");
-		wareHouse1.setName("wareHouse name");
-		
-		assertEquals(wareHouse,wareHouse1);
-		
+		wareHouse.setDescription("description");
+		wareHouse.setAddress("address");
+
+		assertEquals(wareHouse.getName(), "wareHouse name");
+		assertEquals(wareHouse.getEmployeeReference(), "employee reference");
+		assertEquals(wareHouse.getDescription(), "description");
+		assertEquals(wareHouse.getAddress(), "address");
+
 	}
-	
-	@Test
-	public void testWareHousesAreNotEqual() {
-		
-		WareHouse wareHouse = new WareHouse();
-		wareHouse.setReference("test reference");
-		wareHouse.setEmployeeReference("employee reference");
-		wareHouse.setName("wareHouse name");
-		
-		WareHouse wareHouse1 = new WareHouse();
-		wareHouse1.setReference("test reference1");
-		wareHouse1.setEmployeeReference("employee reference");
-		wareHouse1.setName("wareHouse name1");
-		
-		
-		assertFalse(wareHouse.equals(wareHouse1));
-		
-	}
+
 }

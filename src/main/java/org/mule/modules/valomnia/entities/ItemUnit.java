@@ -8,8 +8,6 @@ package org.mule.modules.valomnia.entities;
 
 public class ItemUnit {
 
-	private String organization;
-
 	private String isDefault;
 
 	private String unitReference;
@@ -30,14 +28,6 @@ public class ItemUnit {
 
 	public void setSalesQty(String salesQty) {
 		this.salesQty = salesQty;
-	}
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
 	}
 
 	public String getIsDefault() {
@@ -86,58 +76,6 @@ public class ItemUnit {
 
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ItemUnit other = (ItemUnit) obj;
-		if (barcode == null) {
-			if (other.barcode != null)
-				return false;
-		} else if (!barcode.equals(other.barcode))
-			return false;
-		if (defaultDisplay == null) {
-			if (other.defaultDisplay != null)
-				return false;
-		} else if (!defaultDisplay.equals(other.defaultDisplay))
-			return false;
-		if (isDefault == null) {
-			if (other.isDefault != null)
-				return false;
-		} else if (!isDefault.equals(other.isDefault))
-			return false;
-		if (itemReference == null) {
-			if (other.itemReference != null)
-				return false;
-		} else if (!itemReference.equals(other.itemReference))
-			return false;
-		if (organization == null) {
-			if (other.organization != null)
-				return false;
-		} else if (!organization.equals(other.organization))
-			return false;
-		if (quantity == null) {
-			if (other.quantity != null)
-				return false;
-		} else if (!quantity.equals(other.quantity))
-			return false;
-		if (salesQty == null) {
-			if (other.salesQty != null)
-				return false;
-		} else if (!salesQty.equals(other.salesQty))
-			return false;
-		if (unitReference == null) {
-			if (other.unitReference != null)
-				return false;
-		} else if (!unitReference.equals(other.unitReference))
-			return false;
-		return true;
 	}
 
 }

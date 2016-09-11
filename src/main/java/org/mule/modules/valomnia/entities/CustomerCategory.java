@@ -7,8 +7,6 @@
 package org.mule.modules.valomnia.entities;
 
 public class CustomerCategory {
-	
-	private String organization;
 
 	private String description;
 
@@ -20,13 +18,7 @@ public class CustomerCategory {
 
 	private String reference;
 
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
+	
 
 	public String getDescription() {
 		return description;
@@ -68,11 +60,5 @@ public class CustomerCategory {
 		this.reference = reference;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [ organization = " + organization
-				+ ", description = " + description + ", name = " + name
-				+ ", isRoot = " + isRoot + ", lastUpdated = " + ", parentReference = "
-				+ parentReference + ", reference = " + reference + "]";
-	}
+	
 }

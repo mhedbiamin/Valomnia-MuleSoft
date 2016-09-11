@@ -62,7 +62,11 @@ public class MergeTaxListTestCases extends AbstractTestCase<ValomniaConnector> {
         else
             assertEquals(getConnector().mergeTaxList(obj), expected2);
     }
+   
+	}
+
+	
 
 
 
-}
+

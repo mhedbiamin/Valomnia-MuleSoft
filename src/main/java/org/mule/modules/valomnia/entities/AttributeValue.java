@@ -7,30 +7,14 @@
 package org.mule.modules.valomnia.entities;
 
 public class AttributeValue {
-	
-
-	private String organization;
 
 	private String color;
 
 	private String value;
 
-	
 	private String displayOrder;
 
 	private String attributeReference;
-
-	
-
-	
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
 
 	public String getColor() {
 		return color;
@@ -48,8 +32,6 @@ public class AttributeValue {
 		this.value = value;
 	}
 
-	
-
 	public String getDisplayOrder() {
 		return displayOrder;
 	}
@@ -66,11 +48,5 @@ public class AttributeValue {
 		this.attributeReference = attributeReference;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [ organization = " + organization
-				+ ", color = " + color + ", value = " + value
-				+ ", displayOrder = " + displayOrder
-				+ ", attributeReference = " + attributeReference + "]";
-	}
+	
 }

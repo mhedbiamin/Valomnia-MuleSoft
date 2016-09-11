@@ -7,19 +7,8 @@
 package org.mule.modules.valomnia.entities;
 
 public class Authority {
-	private String organization;
 
 	private String name;
-
-	
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
 
 	public String getName() {
 		return name;
@@ -30,46 +19,4 @@ public class Authority {
 	}
 
 	
-
-	
-
-	@Override
-	public String toString() {
-		return "ClassPojo [organization = " + organization + ", name = " + name
-				+  "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((organization == null) ? 0 : organization.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Authority other = (Authority) obj;
-		
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (organization == null) {
-			if (other.organization != null)
-				return false;
-		} else if (!organization.equals(other.organization))
-			return false;
-		return true;
-	}
 }

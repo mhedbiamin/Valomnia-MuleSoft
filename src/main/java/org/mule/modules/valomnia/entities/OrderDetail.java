@@ -13,8 +13,6 @@ public class OrderDetail {
 
 	private String orderReference;
 
-	private String lastUpdated;
-
 	private String unitPrice;
 
 	private String customerReference;
@@ -23,17 +21,11 @@ public class OrderDetail {
 
 	private String discount;
 
-	private String id;
-
-	private String organization;
-
 	private String tax;
 
 	private String unitReference;
 
 	private String itemReference;
-
-	private String dateCreated;
 
 	private String quantity;
 
@@ -59,14 +51,6 @@ public class OrderDetail {
 
 	public void setOrderReference(String orderReference) {
 		this.orderReference = orderReference;
-	}
-
-	public String getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public void setLastUpdated(String lastUpdated) {
-		this.lastUpdated = lastUpdated;
 	}
 
 	public String getUnitPrice() {
@@ -101,22 +85,6 @@ public class OrderDetail {
 		this.discount = discount;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
-
 	public String getTax() {
 		return tax;
 	}
@@ -141,14 +109,6 @@ public class OrderDetail {
 		this.itemReference = itemReference;
 	}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public String getQuantity() {
 		return quantity;
 	}
@@ -157,17 +117,4 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	@Override
-	public String toString() {
-		return "ClassPojo [itemName = " + itemName
-				+ ", itemCategoryReference = " + itemCategoryReference
-				+ ", orderReference = " + orderReference + ", lastUpdated = "
-				+ lastUpdated + ", unitPrice = " + unitPrice
-				+ ", customerReference = " + customerReference
-				+ ", finalPrice = " + finalPrice + ", discount = " + discount
-				+ ", id = " + id + ", organization = " + organization
-				+ ", tax = " + tax + ", unitReference = " + unitReference
-				+ ", itemReference = " + itemReference + ", dateCreated = "
-				+ dateCreated + ", quantity = " + quantity + "]";
-	}
 }

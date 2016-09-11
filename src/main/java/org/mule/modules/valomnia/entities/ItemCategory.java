@@ -8,31 +8,17 @@ package org.mule.modules.valomnia.entities;
 
 public class ItemCategory {
 
-
-
-	private String organization;
-
 	private String description;
 
 	private String name;
 
 	private String isRoot;
-	
+
 	private String image;
 
 	private String parentReference;
 
 	private String reference;
-
-	
-
-	public String getOrganization() {
-		return organization;
-	}
-
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
 
 	public String getDescription() {
 		return description;
@@ -82,60 +68,4 @@ public class ItemCategory {
 		this.reference = reference;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((organization == null) ? 0 : organization.hashCode());
-		result = prime * result + ((parentReference == null) ? 0 : parentReference.hashCode());
-		result = prime * result + ((reference == null) ? 0 : reference.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ItemCategory other = (ItemCategory) obj;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (organization == null) {
-			if (other.organization != null)
-				return false;
-		} else if (!organization.equals(other.organization))
-			return false;
-		if (parentReference == null) {
-			if (other.parentReference != null)
-				return false;
-		} else if (!parentReference.equals(other.parentReference))
-			return false;
-		if (reference == null) {
-			if (other.reference != null)
-				return false;
-		} else if (!reference.equals(other.reference))
-			return false;
-		return true;
-	}
-
-	
 }
