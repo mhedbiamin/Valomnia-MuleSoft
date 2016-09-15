@@ -47,7 +47,7 @@ public class MergeOrderTestCases extends AbstractTestCase<ValomniaConnector> {
 		obj.setTotalHT("100");
 
 		obj.setStatus("PAID");
-		obj.setDeliveryStatus("NULL");
+		
 
 		if (exist)
 			assertEquals(getConnector().mergeOrder(obj), expected1);
