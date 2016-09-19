@@ -1,8 +1,10 @@
 /**
- * (c) 2003-2016 MuleSoft, Inc. The software in this package is Licensed under the Apache License, Version 2.0
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
- * Other license terms have been included with this distribution in the LICENSE.md file.
+ * (C) 2016 ApptivIT �. This software is protected by international copyright. Any use of this software is subject to Valomnia User account
+ * through a sales contract between you and ApptivIT �. If such a user account Valomnia is not in place,
+ * you can not use the software.
+ * a copy of Valomnia GENERAL TERMS AND CONDITIONS has-been included with this distribution in the file LICENSE.md
  */
+
 
 package org.mule.modules.valomnia;
 
